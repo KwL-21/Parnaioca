@@ -9,7 +9,7 @@ create table funcionarios(
     email varchar(50),
     senha varchar(32),
     perfil enum('a','u')
-);
+)
 
 
 create table clientes(
@@ -21,20 +21,20 @@ create table clientes(
     telefone varchar(20) unique,
     estado char(2),
     cidade varchar(40),
-    situacao enum('a','Ii')
+    situacao enum('a','i')
 )
 
 create table Acomodacoes(
     idacomodacoes int(11) primary key auto_increment,
     nome varchar(40),
-    valor_acomodação decimal(10,2), 
+    valor decimal(10,2), 
     capacidade int(11),
-    tipoAcomodacoes enum('s','a') 
+    tipo enum('s','a') 
 )
 
 INSERT INTO acomodacoes values(null, 'Suite_Parnaioca', '1000.00', '6','s');
 INSERT INTO acomodacoes values(null, 'Suite_Lagoa_azul', '1000.00', '5','s');
-INSERT INTO acomodacoes values(null, 'Suite_Lopes_Mendes', '1000.00', '4','Ss');
+INSERT INTO acomodacoes values(null, 'Suite_Lopes_Mendes', '1000.00', '4','S');
 INSERT INTO acomodacoes values(null, 'Apartamento_1', '500.00', '2','a');
 INSERT INTO acomodacoes values(null, 'Apartamento_2', '500.00', '2','a');
 INSERT INTO acomodacoes values(null, 'Apartamento_3', '500.00', '2','a');
@@ -55,8 +55,8 @@ create table reserva(
     cliente varchar(45) (FK)
 )
 
-create table estoque(
-    idestoque int(11) primary key auto_increment,
+create table produtos(
+    idproduto int(11) primary key auto_increment,
     nome varchar(40),
     valorunitario decimal(10,2),
     valorpagounitario decimal(10,2),
@@ -70,14 +70,14 @@ create table estoque(
 create table frigobar(
     id int primary key auto_increment,
     nome varchar(40),
-    dataaquisicap date,
+    dataaquisicao date,
     status char(1),
     capacidade int(11),
     acomodacao varchar(40)
 )
 
 create table consumidos(
-    id int (11),
+    id int (11) primary key auto_increment,
     idacomodacoes int (11),
     idreserva int (11),
     idcheckin int (11),
@@ -86,12 +86,12 @@ create table consumidos(
     quantidade int (11),
     valor decimal (10,2),
     data date
-)
+)V
 
 create table estoque_frigobar(
     id int primary key auto_increment,
     idfrigobar int(11),
-    idestoque int(11),
+    idprodutos int(11),
     quantidade int(11)
 )
 
@@ -99,14 +99,15 @@ create table checkin(
     idcheckin int primary key auto_increment,
     idReserva int(11) (fk),
     hospedes int(11),
-    forma de pagamento varchar(40)
-)
+    pagamento varchar(40)
+)V
 
 create table checkout(
     idcheckout int(11) primary key auto_increment,
     idReserva int(11) (fk),
-    consumototal decimal(10,2),
-    totalpago decimal (10,2)
+    consumo decimal(10,2),
+    totalapagar decimal (10,2),
+    situacao ENUM ('p''q')
 )
 
 create table estacionamento(
