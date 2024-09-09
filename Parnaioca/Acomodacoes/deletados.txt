@@ -1,0 +1,5 @@
+Excluido em: 16/08/2024 as 08:51:35
+Deletado Por:kawa
+Login: delete from acomodacoes where IDacomodacoes = 15
+----------------------------
+

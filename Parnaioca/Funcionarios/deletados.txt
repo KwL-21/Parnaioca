@@ -1,0 +1,42 @@
+Excluido em: 07/08/2024 as 08:49:06
+Deletado Por:kawa
+Id Usuario: 5
+Login: delete from funcionarios where matricula_usiario = 5
+----------------------------
+
+Excluido em: 07/08/2024 as 13:59:29
+Deletado Por:luiz
+Id Usuario: 4
+Login: delete from funcionarios where matricula_usiario = 4
+----------------------------
+
+Excluido em: 07/08/2024 as 14:56:57
+Deletado Por:luiz
+Id Usuario: 9
+Login: delete from funcionarios where matricula_usiario = 9
+----------------------------
+
+Excluido em: 07/08/2024 as 14:58:13
+Deletado Por:luiz
+Id Usuario: 8
+Login: delete from funcionarios where matricula_usiario = 8
+----------------------------
+
+Excluido em: 13/08/2024 as 13:04:52
+Deletado Por:joão
+Id Usuario: 10
+Login: delete from funcionarios where matricula_usiario = 10
+----------------------------
+
+Excluido em: 14/08/2024 as 11:55:07
+Deletado Por:kawa
+Id Usuario: 12
+Login: delete from funcionarios where matricula_usiario = 12
+----------------------------
+
+Excluido em: 26/08/2024 as 08:02:35
+Deletado Por:kawa
+Id Usuario: 11
+Login: delete from funcionarios where matricula_usiario = 11
+----------------------------
+
