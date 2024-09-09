@@ -1,4 +1,4 @@
-<?php //session_start(); 
+<?php 
  include_once './validar.php';
 
 if($_SESSION["perfil"] == "user"){

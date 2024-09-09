@@ -1,4 +1,4 @@
-<?php //session_start(); 
+<?php 
  include_once './validar.php';
 ?>
 
@@ -37,19 +37,16 @@
         <hr/>
         
         <?php
-        //testando se alguem pesquisou algo
             if(!empty($_GET["nome"])){
                $Nome = $_GET["nome"];
                
                include_once './conexao.php';
                
                $sql = "select * from acomodacoes where nome like '{$Nome}'";
-              // echo $sql;
                $result = mysqli_query($con, $sql);
-               $totalregistros = mysqli_num_rows($result); //num de linhas
+               $totalregistros = mysqli_num_rows($result); 
                
                if($totalregistros > 0){
-                   //echo "OK";
                    ?>
                     <table width="900px" border="1px">  
                         <tr>

@@ -38,6 +38,9 @@
 <a href="/Parnaioca/Frigobar/cadastrar_itens.php">Cadastras itens no frigobar</a>
 <br/>
 
+<a href="/Parnaioca/Frigobar/Consultar_itens.php">Consultar itens em estoque</a>
+<br/>
+
 <a href="/Parnaioca/Frigobar/Cadastrar_consumo.php">Cadastrar consumo</a>
 <br/>
 

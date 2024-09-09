@@ -1,6 +1,5 @@
 <?php
 
-//trim() elimina os espaços em branco
 echo $telefone = trim($_POST["telefene"]);
 
 if (!empty($login)) {

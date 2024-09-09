@@ -5,7 +5,6 @@
         <title></title>
         
         <noscript>
-        <!--no caso do JS tiver desativado, será redirecionado-->
         <meta http-equiv="refresh" content="0; url=noscript.php"/>
         </noscript>
         
@@ -14,13 +13,12 @@
         <script src="js/maskedinput-1.1.2.pack.js"></script>
         
         <script>        
-        //só vai rodar o script quando o documento estiver pronto
         $(document).ready(function(){
-            $("#f").validate(); //aplica a function validate ao #f
+            $("#f").validate(); 
             $("#cpf").mask("999.999.999-99");
             $("#dtnasc").mask("99/99/9999");
-        }//chave
-    ); //parentese
+        }
+    ); 
     
         </script>
          <script type="text/javascript" src="js/cidades-estados-v0.2.js"></script> 
@@ -84,7 +82,6 @@
         </form>
                 
         <?php
-        // put your code here
         ?>
     </body>
 </html>

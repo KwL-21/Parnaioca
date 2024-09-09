@@ -1,4 +1,4 @@
-<?php //session_start(); 
+<?php 
 date_default_timezone_set('America/Sao_Paulo');
  include_once './validar.php';
 ?>
@@ -21,9 +21,7 @@ date_default_timezone_set('America/Sao_Paulo');
         echo "Dados atualizados com sucesso!";
         
         
-            //Criando Log de Operação "Gravado com Sucesso"
            $log= fopen("Editados.txt", "a+");
-            //escreve no arquivo
             fwrite($log, "Editado em: ".date("d/m/Y"). " as ".date("H:i:s"));
             fwrite($log,"\nEditados Por:" .$_SESSION["login"]);
             fwrite($log, "\nID Usuario: ".$idsuario);
@@ -31,7 +29,6 @@ date_default_timezone_set('America/Sao_Paulo');
             fwrite($log, "\nPerfil do Operador: ".$perfil);
             fwrite($log, "\n----------------------------\n\n");
             
-            //fecha o arquivo
             fclose($log);
         
     }else{

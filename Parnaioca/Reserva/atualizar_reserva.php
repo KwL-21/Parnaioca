@@ -1,4 +1,4 @@
-<?php //session_start(); 
+<?php
 date_default_timezone_set('America/Sao_Paulo');
  include_once './validar.php';
 ?>
@@ -10,12 +10,12 @@ date_default_timezone_set('America/Sao_Paulo');
     $CPF = $_POST['cpf'];
     $situacao= $_POST['situacao'];
 
-    $datai = explode("/", $dtinicio); //[dd][mm][aaaa]
-    $datai = array_reverse($datai); //[aaaa][mm][dd]
+    $datai = explode("/", $dtinicio);
+    $datai = array_reverse($datai);
     $dtinicio = implode("-", $datai);
 
-    $dataf = explode("/", $dtfinal); //[dd][mm][aaaa]
-    $dataf = array_reverse($dataf); //[aaaa][mm][dd]
+    $dataf = explode("/", $dtfinal); 
+    $dataf = array_reverse($dataf); 
     $dtfinal = implode("-", $dataf);
     
     include_once './conexao.php';
@@ -28,14 +28,11 @@ date_default_timezone_set('America/Sao_Paulo');
         echo "Dados atualizados com sucesso!";
         
         
-            //Criando Log de Operação "Gravado com Sucesso"
            $log= fopen("Editados.txt", "a+");
-            //escreve no arquivo
             fwrite($log, "Editado em: ".date("d/m/Y"). " as ".date("H:i:s"));
             fwrite($log,"\nEditados Por:" .$_SESSION["login"]);
             fwrite($log, "\n----------------------------\n\n");
             
-            //fecha o arquivo
             fclose($log);
         
     }else{

@@ -1,4 +1,4 @@
-<?php //session_start(); 
+<?php 
 date_default_timezone_set('America/Sao_Paulo');
  include_once './validar_cliente.php';
 ?>
@@ -14,9 +14,8 @@ date_default_timezone_set('America/Sao_Paulo');
     $cidade = $_POST["cidade"];
     $perfil =  $_POST["situacao"];
     
-    //Tratamento de data
-    $data = explode("/", $dtnasc); //[dd][mm][aaaa]
-    $data = array_reverse($data); //[aaaa][mm][dd]
+    $data = explode("/", $dtnasc); 
+    $data = array_reverse($data); 
     $dtnasc = implode("-", $data);
 
     include_once './conexao.php';
@@ -29,16 +28,13 @@ date_default_timezone_set('America/Sao_Paulo');
         echo "Dados atualizados com sucesso!";
         
         
-            //Criando Log de Operação "Gravado com Sucesso"
            $log= fopen("Editados.txt", "a+");
-            //escreve no arquivo
             fwrite($log, "Editado em: ".date("d/m/Y"). " as ".date("H:i:s"));
             fwrite($log,"\nEditados Por:" .$_SESSION["login"]);
             fwrite($log, "\nID Usuario: ".$idsuario);
             fwrite($log, "\nPerfil do Operador: ".$perfil);
             fwrite($log, "\n----------------------------\n\n");
             
-            //fecha o arquivo
             fclose($log);
         
     }else{

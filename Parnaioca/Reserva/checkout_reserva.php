@@ -1,27 +1,17 @@
 <!DOCTYPE html>
- <html>
-   <head> 
-   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-   <title>Check-in</title>       
-   </head>
-   <body>
-        <h3>Realizar check-in</h3>
-    
-   <form action="gravar_checkin.php" method="post">
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Parnaioca - Checko-out</title>
+    </head>
+  <body>
 
-   Número da reserva:<br/>
-   <input type="text" name="idreserva" class="required"/><br/>
+      <form action="gravar_checkout.php" method="post">
 
-   Número de hospedes:<br/>
-   <input type="text" name="hospedes" class="required"><br/>
+       Numero da reserva:<br/>
+       <input type="text" name="idreserva" class="required"/><br/>    
+       
+       <input type="submit" name="Enviar"/>
+  </body>
 
-   Forma de pagamento:<br/>
-           <select name="pagamento">
-                <option value="">Selecione</option>
-                <option value="Credito">Credito</option>
-                <option value="Debito">Debito</option>
-                <option value="Dinheiro">Dinheiro</option>
-                <option value="Pix">PIX</option>
-            </select><br/>
-            <input type="submit" value="Enviar">
-   </body>
+</html>

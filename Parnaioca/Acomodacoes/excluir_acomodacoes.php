@@ -1,4 +1,4 @@
-<?php //session_start(); 
+<?php 
 date_default_timezone_set('America/Sao_Paulo');
  include_once './validar.php';
 
@@ -31,14 +31,11 @@ date_default_timezone_set('America/Sao_Paulo');
     if(mysqli_query($con, $sql)){
         echo "Deletado com sucesso Srº (ª) ".$_SESSION ["login"];
         
-            //Criando Log de Operação "Gravado com Sucesso"
            $log= fopen("deletados.txt", "a+");
-            //escreve no arquivo
             fwrite($log, "Excluido em: ".date("d/m/Y"). " as ".date("H:i:s"));
             fwrite($log,"\nDeletado Por:" .$_SESSION["login"]);
             fwrite($log, "\n----------------------------\n\n");
             
-            //fecha o arquivo
             fclose($log);
         
         

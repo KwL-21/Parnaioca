@@ -9,13 +9,7 @@
     $Perfil = $_POST["perfil"];
     
     
-    //EXPRESSAO REGULAR (REGEX)
-    // /^ ->inicia a regra
-    // $/ -> finaliza a regra
-    // [] valores possiveis
-    // {} min,max de caracteres
-    // + qualquer quantidade
-    // \. -> obrigatoriedade do ponto    
+ 
     $regraemail = "/^[a-zA-Z0-9.-_]+@[a-zA-Z0-9-]+\.[a-zA-Z.]+$/";
     
     $flag = 0;
@@ -49,7 +43,6 @@
         
     }
 
-    //se todas as verificações derem ok
     if($flag == 0){
         
        $sql = "INSERT INTO funcionarios (login, cpf, email, senha, perfil) values('{$login}','{$CPF}','{$email}','{$senha}','{$Perfil}')";

@@ -4,7 +4,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Parnaioca</title>
         <noscript>
-        <!--no caso do JS tiver desativado, será redirecionado-->
         <meta http-equiv="refresh" content="0; url=noscript.php"/>
         </noscript>
         
@@ -14,16 +13,13 @@
         <script>
             $(document).ready(function () {
                 $("#enviar").click(function () {
-                    //alert('teste');
                     var vnome = $("#nome").val();
                     var vemail = $("#email").val();
                     var vdtnasc = $("#dtnasc").val();
                     var vlogin = $("#login").val();
                     var vsenha = $("#senha").val();
 
-                    //alert(vnome);
 
-                    //$.post('url',{dados},'resposta')
                     $.post('gravar.php',
                             {nome: vnome,
                                 email: vemail,
@@ -31,20 +27,16 @@
                                 login: vlogin,
                                 senha: vsenha},
                             function (resp) {
-                                //resp: o que veio do gravar
                                 $("#resposta").html(resp);
                             }
                     );
                 });
 
-                //$("#verificar").click(function(){
-                //$("#login").change(function(){
                 $("#login").keyup(function () {
                     var vlogin = $("#login").val();
                     $.post('verificarlogin_funcionario.php',
                             {login: vlogin},
                             function (resp) {
-                                //resp: o que veio do gravar
                                 $("#verificacao").html(resp);
                             }
                     );
@@ -54,13 +46,12 @@
         </script>
         
         <script>        
-        //só vai rodar o script quando o documento estiver pronto
         $(document).ready(function(){
-            $("#f").validate(); //aplica a function validate ao #f
+            $("#f").validate();
             $("#cpf").mask("999.999.999-99");
             $("#dtnasc").mask("99/99/9999");
-        }//chave
-    ); //parentese
+        }
+    ); 
         
         </script>
     </head>
@@ -95,7 +86,6 @@
         </form>
         
         <?php
-        // put your code here
         ?>
     </body>
 </html>

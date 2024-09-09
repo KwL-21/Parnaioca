@@ -1,6 +1,5 @@
 <?php
 
-//trim() elimina os espaços em branco
 echo $login = trim($_POST["login"]);
 
 if (!empty($login)) {

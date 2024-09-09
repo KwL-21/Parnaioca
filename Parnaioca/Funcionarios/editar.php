@@ -1,4 +1,4 @@
-<?php //session_start(); 
+<?php 
  include_once './validar.php';
  date_default_timezone_set('America/Sao_Paulo');
 if($_SESSION["perfil"] == "user"){

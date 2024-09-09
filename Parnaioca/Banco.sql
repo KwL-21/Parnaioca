@@ -108,3 +108,11 @@ create table checkout(
     consumototal decimal(10,2),
     totalpago decimal (10,2)
 )
+
+create table estacionamento(
+    idestacionamento int(11) primary key auto_increment,
+    idreserva int(11),
+    vagas int(11),
+    cliente int(11),
+    placa char(6)
+)
