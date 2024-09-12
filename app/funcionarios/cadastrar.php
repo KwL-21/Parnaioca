@@ -11,6 +11,37 @@
         <script src="/app/assets/js/jquery.min.js"></script>
         <script src="/app/assets/js/jquery.validate.js"></script>
         <script src="/app/assets/js/maskedinput-1.1.2.pack.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $("#enviar").click(function () {
+                    var vlogin = $("#login").val();
+                    var vsenha = $("#senha").val();
+
+
+                    $.post('gravar.php',
+                            {nome: vnome,
+                                email: vemail,
+                                dtnasc: vdtnasc,
+                                login: vlogin,
+                                senha: vsenha},
+                            function (resp) {
+                                $("#resposta").html(resp);
+                            }
+                    );
+                });
+
+                $("#login").keyup(function () {
+                    var vlogin = $("#login").val();
+                    $.post('/app/funcionarios/include/verificarlogin.php',
+                            {login: vlogin},
+                            function (resp) {
+                                $("#verificacao").html(resp);
+                            }
+                    );
+                });
+            });
+        </script>
         
         <script>        
         $(document).ready(function(){

@@ -11,7 +11,7 @@
 <a href="/app/acomodacoes/cadastrar.php">Cadastro de Acomodações</a>
 <br/>
 
-<a href="/app/acomodacoes/index.php">Consulta de Acomodações</a>
+<a href="/app/acomodacoes/consultar.php">Consulta de Acomodações</a>
 <br/>
 
 <a href="/app/clientes/cadastrar.php">Cadastro de Cliente</a>
