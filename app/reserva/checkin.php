@@ -41,6 +41,9 @@
    Número de hospedes:<br/>
    <input type="text" name="hospedes" class="required"><br/>
 
+   Placa do carro:<br/>
+   <input type="text" name="placa" class="required"><br/>
+
    Forma de pagamento:<br/>
            <select name="pagamento">
                 <option value="">Selecione</option>
