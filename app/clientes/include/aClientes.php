@@ -4,15 +4,15 @@ include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
 
 date_default_timezone_set('America/Sao_Paulo');
 
-    $idsuario = $_POST["idcliente"];
+    $idusuario = $_POST["idusuario"];
     $CPF = $_POST["cpf"];
     $nome =  $_POST["nome"];
-    $dtnasc = $_POST["nascimento"];
+    $dtnasc = $_POST["dtnasc"];
     $email = $_POST["email"];
     $telefone = $_POST["telefone"];
     $estado = $_POST["estado"];
     $cidade = $_POST["cidade"];
-    $perfil =  $_POST["situacao"];
+    $perfil =  $_POST["perfil"];
     
     $data = explode("/", $dtnasc); 
     $data = array_reverse($data); 
@@ -30,7 +30,7 @@ date_default_timezone_set('America/Sao_Paulo');
            $log= fopen("Editados.txt", "a+");
             fwrite($log, "Editado em: ".date("d/m/Y"). " as ".date("H:i:s"));
             fwrite($log,"\nEditados Por:" .$_SESSION["login"]);
-            fwrite($log, "\nID Usuario: ".$idsuario);
+            fwrite($log, "\nID Usuario: ".$idusuario);
             fwrite($log, "\nPerfil do Operador: ".$perfil);
             fwrite($log, "\n----------------------------\n\n");
             

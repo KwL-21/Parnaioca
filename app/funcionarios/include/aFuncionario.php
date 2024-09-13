@@ -3,7 +3,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/app/config/conexao.php');
 include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
 date_default_timezone_set('America/Sao_Paulo');
 
-    $idsuario = $_POST["matricula"];
+    $idsuario = $_POST["idusuario"];
     $login =  $_POST["login"];
     $CPF = $_POST["cpf"];
     $email = $_POST["email"];

@@ -4,8 +4,8 @@
 
 date_default_timezone_set('America/Sao_Paulo');
 
- if($_SESSION["perfil"] == "user"){
-    header("Location:/Parnaioca/painel.php");
+ if($_SESSION["perfil"] == "u"){
+    header("Location:/app/funcionarios/include/painel.php");
     die();
    }
 ?>
@@ -20,7 +20,7 @@ date_default_timezone_set('America/Sao_Paulo');
 
 <?php
 
-    $idusuario = $_GET["matricula"];
+    $idusuario = $_GET["idusuario"];
    
     
     $sql = "delete from funcionarios where matricula = ".$idusuario;

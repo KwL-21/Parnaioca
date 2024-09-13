@@ -6,7 +6,6 @@
      $valorpago = $_POST['valorpago'];
      $entradas = $_POST['entrada'];
      $marca = $_POST['marca'];
-     $dtcompra = $_POST['ultimacompra'];
      $hoje = date('Y-m-d H:i:s');
 
      $flag = 0;
@@ -25,26 +24,19 @@
         $msg = "Preencha o valor!";
      }  
 
-     if($entradas == ""){
-        $entradas = 0;
-     }
-
      if($marca == ""){
         $flag = 1;
         $msg = "Preencha a marca!";
      }
 
-     if($dtcompra == ""){
-        $dtcompra = $hoje;
-     }
 
      $valorunitario = $valorpago * 1.75;
 
 
      if($flag == 0){
         
-        $sql = "INSERT INTO produtos (nome, valorunitario, valorpagounitario, entradas, marca, ultimacompra) values
-        ('{$nomeproduto}','{$valorunitario}', '{$valorpago}','{$entradas}','{$marca}', '{$dtcompra}')";
+        $sql = "INSERT INTO produtos (nome, valorunitario, valorpagounitario, entradas, estoque, marca, ultimacompra) values
+        ('{$nomeproduto}','{$valorunitario}', '{$valorpago}','{$entradas}', '{$entradas}','{$marca}', '{$hoje}')";
           if(mysqli_query($con, $sql)){
               $msg = "Gravado com sucesso!";
           }else{

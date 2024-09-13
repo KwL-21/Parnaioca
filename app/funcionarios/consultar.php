@@ -1,4 +1,5 @@
 <?php 
+include_once($_SERVER['DOCUMENT_ROOT'].'/app/config/conexao.php');
 include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
 ?>
 
@@ -14,7 +15,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
             function excluir(mat){
                 
                 if(confirm('Deseja realmente excluir ?' )){
-                    location.href='excluir.php?idusuario='+mat;
+                    location.href='/app/funcionarios/include/eFuncionario.php?idusuario='+mat;
                 }
                 
             }
@@ -40,7 +41,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
             if(!empty($_GET["login"])){
                $login = $_GET["login"];
                
-               include_once './conexao.php';
                
                $sql = "select * from funcionarios where login like '{$login}'";
                $result = mysqli_query($con, $sql);

@@ -34,6 +34,10 @@ date_default_timezone_set('America/Sao_Paulo');
                 $row4 = mysqli_fetch_assoc($resultconsumo);
                 $consumo = $row4 ["total"];
 
+                if($consumo == ""){
+                  $consumo = 0;
+                }
+
                 $total = $precoAcomodacao + $consumo;
 
 

@@ -19,7 +19,7 @@
             
 <?php
 
-    $idacomodacoes = $_GET["idacomodacoes"];
+    $idacomodacoes = $_GET["IDacomodacoes"];
    
     
     $sql = "delete from acomodacoes where idacomodacoes = ".$idacomodacoes;

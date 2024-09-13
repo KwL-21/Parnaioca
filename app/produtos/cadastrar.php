@@ -46,8 +46,6 @@
        Marca do produto:<br/>
        <input type="text" name="marca" class="required"/><br/>
 
-       Data da compra:<br/>
-       <input type="text" name="ultimacompra" class="required"/><br/>
 
        <input type="submit" value="Enviar"/><br/>
 

@@ -41,8 +41,6 @@
     Quantidade de produtos recebidos:<br/>
     <input type="text" name="entradas" class="required"/><br/>
 
-    Data da compra:<br/>
-    <input type="text" name="dtcompra" class="required" id="compra"/><br/>
     
     <input type="submit" value="Enviar"/>
  </body>

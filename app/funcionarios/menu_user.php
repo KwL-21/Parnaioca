@@ -1,5 +1,5 @@
 <?php 
- include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
+ include_once($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
 ?>
 
 <a href="/app/funcionarios/cadastrar.php">Novo Funcionario</a>

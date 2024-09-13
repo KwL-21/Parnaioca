@@ -8,7 +8,7 @@
     $produto = $_POST['produto'];
     $idfrigobar = $_POST['idfrigobar'];
     $quantidade = $_POST['quantidade'];
-    $hoje = date('d-m-Y');
+    $hoje = date('Y-m-d');
 
     $sqlvalor = "SELECT * FROM produtos  WHERE nome LIKE '{$produto}'";
     $resultvalor = mysqli_query($con, $sqlvalor);

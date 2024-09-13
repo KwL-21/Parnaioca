@@ -65,7 +65,7 @@
         
         <h4>Cadastro de Usuário</h4>
         
-        <form action="/app/funcionarios/include/gFuncionarios.php" method="post" id="f">
+        <form action="/app/funcionarios/include/gFuncionario.php" method="post" id="f">
            
            Login:<br/>
         <input type="text" name="login" id="login"/>

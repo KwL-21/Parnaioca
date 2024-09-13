@@ -4,12 +4,7 @@
 
     $nomeproduto = $_POST['nome'];
     $comprado = $_POST['entradas'];
-    $dtcompra = $_POST['dtcompra'];
     $hoje = date('Y-m-d');
-
-    $data = explode("/", $dtcompra); 
-    $data = array_reverse($data); 
-    $dtcompra = implode("-", $data);
 
 
     $flag = 0;
@@ -40,13 +35,10 @@
         $msg = "Estoque insuficiente para esta retirada, quantidade disponivel no estoque é de:" .$estoque;
     }
 
-    if($dtcompra == ""){
-        $dtcompra = $hoje;
-    }
 
     if($flag == 0){
         
-        $sql = "UPDATE produtos SET entradas = '{$entradas}', estoque = '{$iestoque}', ultimacompra = '{$dtcompra}' ";
+        $sql = "UPDATE produtos SET entradas = '{$entradas}', estoque = '{$iestoque}', ultimacompra = '{$hoje}' ";
           if(mysqli_query($con, $sql)){
               $msg = "Gravado com sucesso!";
           }else{
