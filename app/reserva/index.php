@@ -1,5 +1,5 @@
 <?php 
-include_once($_SERVER['DOCUMENT_ROOT'].'/app/config/conexao.php');
+include($_SERVER['DOCUMENT_ROOT'].'/app/config/conexao.php');
 include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
 ?>
 
@@ -8,14 +8,14 @@ include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
     <head>
 
        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
+        <title>Consulta de Reserva</title>
         
         <script>
             
             function excluir(mat){
                 
-                if(confirm('Deseja realmente excluir ?' )){
-                    location.href='/app/funcionarios/include/eFuncionario.php?idusuario='+mat;
+                if(confirm('Deseja realmente excluir ?' + mat)){
+                    location.href='excluir.php?idusuario='+mat;
                 }
                 
             }
@@ -25,12 +25,12 @@ include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
         
     </head>
     <body>
-             <h3>Consulta de Registro</h3>
+             <h3>Consulta de Reserva</h3>
         
-        <form action="consultar.php" method="get">
+        <form action="index.php" method="get">
             
             Nome:
-            <input type="text" name="login"/>
+            <input type="text" name="idReserva" value="%">
             <input type="submit" value="Buscar" />
             
         </form>
@@ -38,36 +38,41 @@ include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
         <hr/>
         
         <?php
-            if(!empty($_GET["login"])){
-               $login = $_GET["login"];
+        
+            if(!empty($_GET["idReserva"])){
+               $Acomodacao = $_GET["idReserva"];
                
                
-               $sql = "select * from funcionarios where login like '{$login}'";
+               $sql = "select * from reserva where idReserva like '%{$Acomodacao}%'";
                $result = mysqli_query($con, $sql);
                $totalregistros = mysqli_num_rows($result); 
                
                if($totalregistros > 0){
                    ?>
                     <table width="900px" border="1px">  
+                            <th>Acomodação</th>
                         <tr>
-                            <th>login</th>
-                            <th>Perfil</th>
+                            <th>CPF</th>
+                            <th>Data de Inicio</th>
+                            <th>Data de Termino</th>
+                            <th>Situação</th>
                             <th>Editar</th>
-                            <th>Excluir</th>
                         </tr>                                                
                    <?php
                 
                    while($row = mysqli_fetch_array($result)){
-                        $idMatricula = $row['matricula'];
+                        $idMatricula = $row['idreserva'];
                 
 
                        ?>
                         
                         <tr>
-                            <td><?php echo $row["login"]?></td>
-                            <td><?php echo $row["perfil"]?></td>
-                             <td><a href="editar.php?idMatricula=<?php echo $idMatricula ?>">...</a></td>
-                             <td><a href="#" onclick="excluir(<?php echo $idMatricula ?>)">X</a></td> 
+                            <td><?php echo $row["acomodacoes"]?></td>
+                            <td><?php echo $row["cliente"]?></td>
+                            <td><?php echo $row["inicio"]?></td>
+                            <td><?php echo $row["final"]?></td>
+                            <td><?php echo $row["situacao"]?></td>
+                             <td><a href="/app/reserva/editar.php?idReserva=<?php echo $idMatricula ?>">...</a></td> 
                         </tr>
                         
                         <?php
@@ -88,6 +93,9 @@ include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
             }
         ?>
         <hr/>
+        <a href="/app/reserva/reserva.php">Realizar reserva</a></br>
+        <a href="/app/reserva/checkin.php">Realizar check-in</a></br>
+        <a href="/app/reserva/checkout.php">Realizar check-out</a></br>
         <a href="/app/funcionarios/include/painel.php">Pagina Inicial</a>
     </body>
 </html>

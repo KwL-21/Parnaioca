@@ -41,11 +41,20 @@ date_default_timezone_set('America/Sao_Paulo');
     $sqltelefone = "SELECT * FROM clientes WHERE telefone = '{$telefone}'";
     $resulttelefone = mysqli_query($con, $sqltelefone);
 
-    if(mysqli_num_rows($result) == 1){
-        echo "cliente ja cadastrado!";
-    }elseif(mysqli_num_rows($resulttelefone) > 0){
-        echo "telefone ja cadastrado!";
-    }else{
+
+     if(mysqli_num_rows($result) == 1){
+         $flag = 1;
+         $msg = "Cliente já cadastrado!";
+     }
+
+
+    if(mysqli_num_rows($resulttelefone) > 0){
+        $flag = 1;
+        $msg = "Telefone já cadastrado";
+    }
+
+   if($flag == 0){
+
     $sql = "INSERT INTO clientes(nome, email, cpf, nascimento, telefone, estado, cidade, situacao) values('{$nome}','{$email}','{$cpf}','{$dtnasc}','{$telefone}', '{$estado}','{$cidade}','a')";
     
     if(mysqli_query($con, $sql)){

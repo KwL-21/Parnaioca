@@ -1,6 +1,8 @@
 <?php 
 include($_SERVER['DOCUMENT_ROOT'].'/app/config/conexao.php');
 include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
+
+date_default_timezone_set('America/Sao_Paulo');
 ?>
 
 <!DOCTYPE html>
@@ -27,10 +29,10 @@ include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
     <body>
              <h3>Consulta de Registro</h3>
         
-        <form action="movimentacao.php" method="get">
+        <form action="index.php" method="get">
             
             Nome:
-            <input type="text" name="nome"/>
+            <input type="text" name="nome" value="%"/>
             <input type="submit" value="Buscar" />
             
         </form>
@@ -42,31 +44,32 @@ include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
                $login = $_GET["nome"];
                
                
-               $sql = "select * from produtos where nome like '{$login}'";
+               $sql = "select * from produtos where nome like '%{$login}%'";
                $result = mysqli_query($con, $sql);
-               $totalregistros = mysqli_num_rows($result);
+               $totalregistros = mysqli_num_rows($result); 
                
                if($totalregistros > 0){
-
                    ?>
                     <table width="900px" border="1px">  
                         <tr>
-                            <th>Nome do produto</th>
-                            <th>Quantidade em estoque</th>
+                            <th>Nome do Produto</th>
                             <th>Preço</th>
+                            <th>Estoque</th>
+                            <th>Ultima compra</th>
                         </tr>                                                
                    <?php
                 
                    while($row = mysqli_fetch_array($result)){
-                        $idfrigobar = $row['idproduto'];
+                        $idMatricula = $row['idproduto'];
                 
 
                        ?>
                         
                         <tr>
                             <td><?php echo $row["nome"]?></td>
-                            <td><?php echo  $row["estoque"]?></td>
-                            <td><?php echo "R$".$row["valorunitario"]?></td>
+                            <td><?php echo $row["valorunitario"]?></td>
+                            <td><?php echo $row["estoque"]?></td>
+                            <td><?php echo $row["ultimacompra"]?></td>
                         </tr>
                         
                         <?php
@@ -87,7 +90,11 @@ include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
             }
         ?>
         <hr/>
-        <a href="/app/produtos/entradas.php">Registrar entradas</a><br/>
+        <a href="/app/frigobar/frigobar.php">Cadastrar frigobar</a><br/>
+        <a href="/app/frigobar/itens.php">Cadastrar itens no frigobar</a><br/>
+        <a href="/app/frigobar/consumo.php">Cadastrar consumo</a><br/>
         <a href="/app/funcionarios/include/painel.php">Pagina Inicial</a>
     </body>
 </html>
+
+

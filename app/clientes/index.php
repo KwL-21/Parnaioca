@@ -14,10 +14,10 @@
     <body>
              <h3>Consulta de Registro</h3>
         
-        <form action="consultar.php" method="get">
+        <form action="index.php" method="get">
             
             CPF:
-            <input type="text" name="cpf"/>
+            <input type="text" name="cpf" value="%"/>
             <input type="submit" value="Buscar" />
             
         </form>
@@ -29,7 +29,7 @@
                $cpf = $_GET["cpf"];
                
                
-               $sql = "select * from clientes where cpf like '{$cpf}'";
+               $sql = "select * from clientes where cpf like '%{$cpf}%'";
              
                $result = mysqli_query($con, $sql);
                $totalregistros = mysqli_num_rows($result); 
@@ -82,6 +82,7 @@
             }
         ?>
         <hr/>
+        <a href="/app/clientes/cadastrar.php">Cadastrar cliente</a><br/>
         <a href="/app/funcionarios/include/painel.php">Pagina Inicial</a>
     </body>
 </html>

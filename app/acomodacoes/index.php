@@ -2,8 +2,10 @@
 include($_SERVER['DOCUMENT_ROOT'].'/app/config/conexao.php');
 include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
 
-date_default_timezone_set('America/Sao_Paulo');
+$permissaoPerfil = $_SESSION["perfil"];
 ?>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -17,7 +19,7 @@ date_default_timezone_set('America/Sao_Paulo');
             function excluir(mat){
                 
                 if(confirm('Deseja realmente excluir ?' )){
-                    location.href='excluir.php?idusuario='+mat;
+                    location.href='/app/acomodacoes/include/eAcomodacoes.php?IDacomodacoes='+mat;
                 }
                 
             }
@@ -27,12 +29,12 @@ date_default_timezone_set('America/Sao_Paulo');
         
     </head>
     <body>
-             <h3>Consulta de Registro</h3>
+             <h3>Consulta de acomodações cadastradas</h3>
         
-        <form action="consultar.php" method="get">
+        <form action="index.php" method="get">
             
             Nome:
-            <input type="text" name="nome"/>
+            <input type="text" name="nome" value="%"/>
             <input type="submit" value="Buscar" />
             
         </form>
@@ -41,10 +43,10 @@ date_default_timezone_set('America/Sao_Paulo');
         
         <?php
             if(!empty($_GET["nome"])){
-               $login = $_GET["nome"];
+               $Nome = $_GET["nome"];
                
                
-               $sql = "select * from produtos where nome like '{$login}'";
+               $sql = "select * from acomodacoes where nome like '%{$Nome}%'";
                $result = mysqli_query($con, $sql);
                $totalregistros = mysqli_num_rows($result); 
                
@@ -52,24 +54,41 @@ date_default_timezone_set('America/Sao_Paulo');
                    ?>
                     <table width="900px" border="1px">  
                         <tr>
-                            <th>Nome do Produto</th>
-                            <th>Preço</th>
-                            <th>Estoque</th>
-                            <th>Ultima compra</th>
+                            <th>Nome da Acomodação</th>
+                            <th>Valor da Acomodação</th>
+                            <th>Capacidade</th>
+                            <th>Tipo de Acomodação</th>
+                            
+                            <?php
+                                if($permissaoPerfil !== "u") {
+                                    ?>
+                                        <th>Editar</th>
+                                        <th>Excluir</th>
+                                    <?php
+                                }
+                            ?>
                         </tr>                                                
                    <?php
                 
                    while($row = mysqli_fetch_array($result)){
-                        $idMatricula = $row['idproduto'];
+                        $Idacomodacoes = $row['idacomodacoes'];
                 
 
                        ?>
                         
                         <tr>
                             <td><?php echo $row["nome"]?></td>
-                            <td><?php echo $row["valorunitario"]?></td>
-                            <td><?php echo $row["estoque"]?></td>
-                            <td><?php echo $row["ultimacompra"]?></td>
+                            <td><?php echo $row["valor"]?></td>
+                            <td><?php echo $row["capacidade"]?></td>
+                            <td><?php echo $row["tipo"]?></td>
+                            <?php
+                                if($permissaoPerfil !== "u") {
+                                    ?>
+                                       <td><a href="editar.php?IDacomodacoes=<?php echo $Idacomodacoes ?>">...</a></td>
+                                       <td><a href="#" onclick="excluir(<?php echo $Idacomodacoes ?>)">X</a></td>
+                                    <?php
+                                }
+                            ?>
                         </tr>
                         
                         <?php
@@ -90,6 +109,7 @@ date_default_timezone_set('America/Sao_Paulo');
             }
         ?>
         <hr/>
+        <a href="/app/acomodacoes/cadastrar.php">Cadastrar acomodação</a> </br>
         <a href="/app/funcionarios/include/painel.php">Pagina Inicial</a>
     </body>
 </html>

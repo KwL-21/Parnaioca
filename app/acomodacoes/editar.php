@@ -5,7 +5,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
  date_default_timezone_set('America/Sao_Paulo');
  
 if($_SESSION["perfil"] == "u"){
- header("Location:Parnaioca/painel.php");
+ header("Location:/app/funcionarios/include/painel.php");
  die();
 }
 ?>
