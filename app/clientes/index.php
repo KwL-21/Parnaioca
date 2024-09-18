@@ -1,6 +1,6 @@
 <?php 
  include($_SERVER['DOCUMENT_ROOT'].'/app/config/conexao.php');
- include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
+ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +57,12 @@
                         
                         <tr>
                             <td><?php echo $row["nome"]?></td>
-                            <td><?php echo $row["situacao"]?></td>
+                            <td><?php if($row["situacao"] == 'a'){
+                                echo "Ativo";
+                            }else{
+                                echo "Inativo";
+                            }
+                            ?></td>
                             <td><?php echo $row["cpf"]?></td>
                             <td><?php echo $row["telefone"]?></td>
                             <td><?php echo $row["email"]?></td>

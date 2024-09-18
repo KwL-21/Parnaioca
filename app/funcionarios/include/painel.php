@@ -1,5 +1,5 @@
 <?php 
- include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
+include_once($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
 ?>
 <!DOCTYPE html>
 <html>

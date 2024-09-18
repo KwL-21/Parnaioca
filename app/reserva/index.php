@@ -1,6 +1,6 @@
 <?php 
 include($_SERVER['DOCUMENT_ROOT'].'/app/config/conexao.php');
-include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
+include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
 ?>
 
 <!DOCTYPE html>
@@ -50,8 +50,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
                if($totalregistros > 0){
                    ?>
                     <table width="900px" border="1px">  
-                            <th>Acomodação</th>
                         <tr>
+                            <th>Acomodação</th>
                             <th>CPF</th>
                             <th>Data de Inicio</th>
                             <th>Data de Termino</th>

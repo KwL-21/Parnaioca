@@ -1,6 +1,6 @@
 <?php 
  include($_SERVER['DOCUMENT_ROOT'].'/app/config/conexao.php');
- include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
+ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
 
 if($_SESSION["perfil"] == "user"){
  header("Location:Parnaioca/painel.php");

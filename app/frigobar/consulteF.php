@@ -2,10 +2,8 @@
 include($_SERVER['DOCUMENT_ROOT'].'/app/config/conexao.php');
 include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
 
-$permissaoPerfil = $_SESSION["perfil"];
+date_default_timezone_set('America/Sao_Paulo');
 ?>
-
-
 
 <!DOCTYPE html>
 <html>
@@ -19,7 +17,7 @@ $permissaoPerfil = $_SESSION["perfil"];
             function excluir(mat){
                 
                 if(confirm('Deseja realmente excluir ?' )){
-                    location.href='/app/acomodacoes/include/eAcomodacoes.php?IDacomodacoes='+mat;
+                    location.href='excluir.php?idusuario='+mat;
                 }
                 
             }
@@ -29,9 +27,9 @@ $permissaoPerfil = $_SESSION["perfil"];
         
     </head>
     <body>
-             <h3>Consulta de acomodações cadastradas</h3>
+             <h3>Consulta de Registro</h3>
         
-        <form action="index.php" method="get">
+        <form action="consulteF.php" method="get">
             
             Nome:
             <input type="text" name="nome" value="%"/>
@@ -43,10 +41,10 @@ $permissaoPerfil = $_SESSION["perfil"];
         
         <?php
             if(!empty($_GET["nome"])){
-               $Nome = $_GET["nome"];
+               $login = $_GET["nome"];
                
                
-               $sql = "select * from acomodacoes where nome like '%{$Nome}%'";
+               $sql = "select * from frigobar where nome like '%{$login}%'";
                $result = mysqli_query($con, $sql);
                $totalregistros = mysqli_num_rows($result); 
                
@@ -54,46 +52,26 @@ $permissaoPerfil = $_SESSION["perfil"];
                    ?>
                     <table width="900px" border="1px">  
                         <tr>
-                            <th>Nome da Acomodação</th>
-                            <th>Valor da Acomodação</th>
-                            <th>Capacidade</th>
-                            <th>Tipo de Acomodação</th>
-                            
-                            <?php
-                                if($permissaoPerfil !== "u") {
-                                    ?>
-                                        <th>Editar</th>
-                                        <th>Excluir</th>
-                                    <?php
-                                }
-                            ?>
+                            <th>Id do frigobar</th>
+                            <th>Nome do frigobar</th>
+                            <th>Acomodação do frigobar</th>
+                            <th>Capacidade do frigobar</th>
+                            <th>Compra do frigobar</th>
                         </tr>                                                
                    <?php
                 
                    while($row = mysqli_fetch_array($result)){
-                        $Idacomodacoes = $row['idacomodacoes'];
+                        $idMatricula = $row['nome'];
                 
 
                        ?>
                         
                         <tr>
+                            <td><?php echo $row["id"]?></td>
                             <td><?php echo $row["nome"]?></td>
-                            <td><?php echo $row["valor"]?></td>
+                            <td><?php echo $row["acomodacao"]?></td>
                             <td><?php echo $row["capacidade"]?></td>
-                            <td><?php if($row["tipo"] == 's'){
-                                  echo "Suite";
-                            }else{
-                                echo "Apartamento";
-                            }
-                            ?></td>
-                            <?php
-                                if($permissaoPerfil !== "u") {
-                                    ?>
-                                       <td><a href="editar.php?IDacomodacoes=<?php echo $Idacomodacoes ?>">...</a></td>
-                                       <td><a href="#" onclick="excluir(<?php echo $Idacomodacoes ?>)">X</a></td>
-                                    <?php
-                                }
-                            ?>
+                            <td><?php echo $row["dataaquisicao"]?></td>
                         </tr>
                         
                         <?php
@@ -114,7 +92,10 @@ $permissaoPerfil = $_SESSION["perfil"];
             }
         ?>
         <hr/>
-        <a href="/app/acomodacoes/cadastrar.php">Cadastrar acomodação</a> </br>
+        <a href="/app/frigobar/frigobar.php">Cadastrar frigobar</a><br/>
+        <a href="/app/frigobar/index.php">Area frigobar</a><br/>
         <a href="/app/funcionarios/include/painel.php">Pagina Inicial</a>
     </body>
 </html>
+
+

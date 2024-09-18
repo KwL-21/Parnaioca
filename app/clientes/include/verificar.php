@@ -1,4 +1,5 @@
 <?php
+include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
 
 echo $telefone = trim($_POST["telefene"]);
 

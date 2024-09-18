@@ -1,6 +1,8 @@
 <?php 
-include_once($_SERVER['DOCUMENT_ROOT'].'/app/config/conexao.php');
+include($_SERVER['DOCUMENT_ROOT'].'/app/config/conexao.php');
 include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
+
+date_default_timezone_set('America/Sao_Paulo');
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +17,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
             function excluir(mat){
                 
                 if(confirm('Deseja realmente excluir ?' )){
-                    location.href='/app/funcionarios/include/eFuncionario.php?idusuario='+mat;
+                    location.href='excluir.php?idusuario='+mat;
                 }
                 
             }
@@ -27,10 +29,10 @@ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
     <body>
              <h3>Consulta de Registro</h3>
         
-        <form action="index.php" method="get">
+        <form action="consulteI.php" method="get">
             
             Nome:
-            <input type="text" name="login" value="%"/>
+            <input type="text" name="idprodutos" value="%"/>
             <input type="submit" value="Buscar" />
             
         </form>
@@ -38,41 +40,39 @@ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
         <hr/>
         
         <?php
-            if(!empty($_GET["login"])){
-               $login = $_GET["login"];
+            if(!empty($_GET["idprodutos"])){
+               $login = $_GET["idprodutos"];
                
                
-               $sql = "select * from funcionarios where login like '%{$login}%'";
+               $sql = "select * from estoque_frigobar where idprodutos like '%{$login}%'";
                $result = mysqli_query($con, $sql);
                $totalregistros = mysqli_num_rows($result); 
+
+               $prod = "SELECT * FROM produtos WHERE idproduto LIKE '{$login}' ";
+               $resultprod = mysqli_query($con, $prod);
+               $row1 = mysqli_fetch_assoc($resultprod);
+               $nomeprod = $row1['nome'];
                
                if($totalregistros > 0){
                    ?>
                     <table width="900px" border="1px">  
                         <tr>
-                            <th>login</th>
-                            <th>Perfil</th>
-                            <th>Editar</th>
-                            <th>Excluir</th>
+                            <th>Numero do frigobar</th>
+                            <th>Nome do Produto</th>
+                            <th>Estoque</th>
                         </tr>                                                
                    <?php
                 
                    while($row = mysqli_fetch_array($result)){
-                        $idMatricula = $row['matricula'];
+                        $idMatricula = $row['idprodutos'];
                 
 
                        ?>
                         
                         <tr>
-                            <td><?php echo $row["login"]?></td>
-                            <td><?php if($row['perfil'] == 'u'){
-                                echo "Usuario";
-                            }else{
-                                echo "administrador";
-                            }
-                            ?></td>
-                             <td><a href="editar.php?idMatricula=<?php echo $idMatricula ?>">...</a></td>
-                             <td><a href="#" onclick="excluir(<?php echo $idMatricula ?>)">X</a></td> 
+                            <td><?php echo $row["idfrigobar"]?></td>
+                            <td><?php echo $nomeprod?></td>
+                            <td><?php echo $row["quantidade"]?></td>
                         </tr>
                         
                         <?php
@@ -93,7 +93,9 @@ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
             }
         ?>
         <hr/>
-        <a href="/app/funcionarios/cadastrar.php">Cadastrar funcionarios</a> <br/>
+        <a href="/app/frigobar/itens.php">Cadastrar itens no frigobar</a><br/>
+        <a href="/app/frigobar/consumo.php">Cadastrar consumo</a><br/>
+        <a href="/app/frigobar/index.php">Area frigobar</a><br/>
         <a href="/app/funcionarios/include/painel.php">Pagina Inicial</a>
     </body>
 </html>

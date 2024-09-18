@@ -1,5 +1,6 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'].'/app/config/conexao.php');
+include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
 
      $acomodacao = $_POST['acomodacoes'];
      $dtinicio = $_POST['inicio'];

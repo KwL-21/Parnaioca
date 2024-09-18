@@ -1,5 +1,6 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'].'/app/config/conexao.php');
+include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
 
 echo $login = trim($_POST["login"]);
 
