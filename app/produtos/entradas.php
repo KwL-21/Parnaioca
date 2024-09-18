@@ -1,3 +1,6 @@
+<?php 
+include($_SERVER['DOCUMENT_ROOT'].'/app/config/validar.php');
+?>
 <!DOCTYPE html>
 <html>
       <head>
