@@ -30,8 +30,8 @@ date_default_timezone_set('America/Sao_Paulo');
            $log= fopen("Editados.txt", "a+");
             fwrite($log, "Editado em: ".date("d/m/Y"). " as ".date("H:i:s"));
             fwrite($log,"\nEditados Por:" .$_SESSION["login"]);
-            fwrite($log, "\nID Usuario: ".$idusuario);
             fwrite($log, "\nPerfil do Operador: ".$perfil);
+            fwrite($log,"\nId do cliente atualizado:" .$idusuario);
             fwrite($log, "\n----------------------------\n\n");
             
             fclose($log);

@@ -69,26 +69,26 @@ if($_SESSION["perfil"] == "user"){
             <input type="hidden" readonly="true" name="idusuario" value="<?php echo $row["idcliente"] ?>"/>
             
              Nome:<br/>
-            <input type="text" name="nome" class="required" minlength="3"/><br/>
+            <input type="text" name="nome" class="required" minlength="3" value="<?php echo $row['nome'] ?>"/><br/>
             
             E-mail:<br/>
-            <input type="text" name="email" class="required email"/><br/>
+            <input type="text" name="email" class="required email"value="<?php echo $row['email'] ?>"/><br/>
             
             Cpf:<br/>
-            <input type="text" name="cpf" class="required" id="cpf"/><br/>
+            <input type="text" name="cpf" class="required" id="cpf" value="<?php echo $row['cpf'] ?>"/><br/>
             
             Data de Nascimento:<br/>
-            <input type="text" name="dtnasc" class="required" id="dtnasc"/><br/>
+            <input type="text" name="dtnasc" class="required" id="dtnasc" value="<?php echo $row['nascimento'] ?>"/><br/>
              
             Telefone:<br/>
-            <input type="text" name="telefone"><br/>
+            <input type="text" name="telefone" value="<?php echo $row['telefone'] ?>"><br/>
 
             Estado:<br/>
-            <select name="estado" id="estado">                
+            <select name="estado" id="estado" >                
             </select>
             <br/>
             Cidade:<br/>
-            <select name="cidade" id="cidade">
+            <select name="cidade" id="cidade" >
                 <option value=""/>Escolha primeiro um estado
             </select>
             <br/>

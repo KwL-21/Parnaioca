@@ -31,8 +31,7 @@ date_default_timezone_set('America/Sao_Paulo');
            $log= fopen("deletados.txt", "a+");
             fwrite($log, "Excluido em: ".date("d/m/Y"). " as ".date("H:i:s"));
             fwrite($log,"\nDeletado Por:" .$_SESSION["login"]);
-            fwrite($log, "\nId Usuario: ".$idusuario);
-            fwrite($log, "\nLogin: ".$sql);
+            fwrite($log, "\nId Usuario excluido: ".$idusuario);
             fwrite($log, "\n----------------------------\n\n");
             
             fclose($log);

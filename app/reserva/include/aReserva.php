@@ -31,6 +31,7 @@ date_default_timezone_set('America/Sao_Paulo');
            $log= fopen("Editados.txt", "a+");
             fwrite($log, "Editado em: ".date("d/m/Y"). " as ".date("H:i:s"));
             fwrite($log,"\nEditados Por:" .$_SESSION["login"]);
+            fwrite($log,"\nReserva editada:" .$idReserva);
             fwrite($log, "\n----------------------------\n\n");
             
 

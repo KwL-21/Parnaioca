@@ -71,13 +71,13 @@ if($_SESSION["perfil"] == "user"){
             </select><br/>
     
               Data de Inicio:<br/>
-              <input type="text" name="inicio" class="required" id="dtinicio"/><br/>
+              <input type="text" name="inicio" class="required" id="dtinicio" value="<?php echo $row['inicio'] ?>"/><br/>
     
              Data de Termino:<br/>
-             <input type="text" name="final" class="required" id="dtfinal"/><br/>
+             <input type="text" name="final" class="required" id="dtfinal" value="<?php echo $row['final'] ?>"/><br/>
     
              Cpf:<br/>
-             <input type="text" name="cpf" class="required" id="cpf"/><br/>
+             <input type="text" name="cpf" class="required" id="cpf" value="<?php echo $row['cliente'] ?>"/><br/>
             
             Situação da reserva:<br/>
             <input type="radio" name="situacao" value="cancelado"/>Cancelar reserva

@@ -60,16 +60,16 @@ if($_SESSION["perfil"] == "user"){
             <input type="hidden" readonly="true" name="idusuario" value="<?php echo $row["matricula"] ?>"/>
                    
             Login:<br/>
-            <input type="text" name="login" /><br/>
+            <input type="text" name="login" value="<?php echo $row['login'] ?>" /><br/>
             
             CPF:<br/>
-            <input type="text" name="cpf"/><br/>
+            <input type="text" name="cpf" value="<?php echo $row['cpf'] ?>"/><br/>
 
             Email:<br/>
-            <input type="text" name="email"/> <br/>
+            <input type="text" name="email" value="<?php echo $row['email'] ?>"/> <br/>
 
             Senha:<br/>
-            <input type="password" name="senha"/><br/>
+            <input type="password" name="senha" value="<?php echo $row['senha'] ?>"/><br/>
             
             Perfil:<br/>
             <input type="radio" name="perfil" value="a"/>Administrador

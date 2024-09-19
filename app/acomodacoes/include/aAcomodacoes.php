@@ -23,6 +23,7 @@ $Tipoacomodacao = $_POST["tipo"];
            $log= fopen("Editados.txt", "a+");
             fwrite($log, "Editado em: ".date("d/m/Y"). " as ".date("H:i:s"));
             fwrite($log,"\nEditados Por:" .$_SESSION["login"]);
+            fwrite($log,"\nAcomodação editada:" .$IDacomodacoes );
             fwrite($log, "\n----------------------------\n\n");
             
             fclose($log);

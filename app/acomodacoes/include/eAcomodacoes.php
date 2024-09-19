@@ -30,6 +30,7 @@
            $log= fopen("deletados.txt", "a+");
             fwrite($log, "Excluido em: ".date("d/m/Y"). " as ".date("H:i:s"));
             fwrite($log,"\nDeletado Por:" .$_SESSION["login"]);
+            fwrite($log,"\nAcomodação deletada:" .$idacomodacoes );
             fwrite($log, "\n----------------------------\n\n");
             
             fclose($log);
