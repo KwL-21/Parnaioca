@@ -29,7 +29,8 @@ create table Acomodacoes(
     nome varchar(40),
     valor decimal(10,2), 
     capacidade int(11),
-    tipo enum('s','a') 
+    tipo enum('s','a'), 
+    status enum ('a','i')
 )
 
 INSERT INTO acomodacoes values(null, 'Suite_Parnaioca', '1000.00', '6','s');
