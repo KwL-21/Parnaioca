@@ -41,7 +41,13 @@ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
         $msg = "Acomodação não suporta essa quantidade de hospedes!";
     }
 
-     $vagas = $capacidade / 2;
+     $estacionamento = $capacidade / 3;
+
+     if($estacionamento <=1){
+        $vagas = 1;
+     }else{
+        $vagas = 2;
+     }
 
     if ($flag == 0);{
         $sql = "INSERT INTO checkin (idReserva, hospedes, pagamento) VALUES ('{$idreserva}', '{$hopedes}', '{$pagamento}')";
