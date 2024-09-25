@@ -1,2 +1,2 @@
 # Parnaioca
-SEja bem vindo a parnaioca, meu projeto de manejamento de pousadas!
+Seja bem vindo a parnaioca, meu projeto de manejamento de pousadas!
