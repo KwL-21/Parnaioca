@@ -49,11 +49,11 @@ INSERT INTO acomodacoes values(null, 'Apartamento_10', '500.00', '2','a');
 
 create table reserva(
     idreserva int primary key auto_increment,
-    Acomodacoes varchar(40), (FK)
+    Acomodacoes varchar(40),
     inicio date,
     final date,
     situacao enum('reservado','ocupado','concluido','cancelado'),
-    cliente varchar(45) (FK)
+    cliente varchar(45)
 )
 
 create table produtos(
@@ -87,7 +87,7 @@ create table consumidos(
     quantidade int (11),
     valor decimal (10,2),
     data date
-)V
+)
 
 create table estoque_frigobar(
     id int primary key auto_increment,
@@ -98,14 +98,14 @@ create table estoque_frigobar(
 
 create table checkin(
     idcheckin int primary key auto_increment,
-    idReserva int(11) (fk),
+    idReserva int(11),
     hospedes int(11),
     pagamento varchar(40)
-)V
+)
 
 create table checkout(
     idcheckout int(11) primary key auto_increment,
-    idReserva int(11) (fk),
+    idReserva int(11),
     consumo decimal(10,2),
     totalapagar decimal (10,2),
     situacao ENUM ('p''q')
