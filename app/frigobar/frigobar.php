@@ -5,7 +5,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
 <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Reserva</title>
+        <title>Parnaioca - Frigobar</title>
         
         <noscript>
         <meta http-equiv="refresh" content="0; url=noscript.php"/>
@@ -40,7 +40,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
       <form action="/app/frigobar/include/gFrigobar.php" method="post" id="f">
       
       Nome do frigobar:<br/>
-      <input type="text" name="frigobar" class="required"><br/>
+      <input type="text" name="frigobar" ><br/>
 
       Data de aquisição:<br/>
       <input type="text" name="aquisicao" class="required" id="dataaquisicao"><br/>

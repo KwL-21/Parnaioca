@@ -5,7 +5,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
 <html>
    <head>
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-   <title>Parnaioca - Produtos</title>
+   <title>Parnaioca - Consultar produtos</title>
 
    <noscript>
         <meta http-equiv="refresh" content="0; url=noscript.php"/>
@@ -48,6 +48,9 @@ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
 
        Marca do produto:<br/>
        <input type="text" name="marca" class="required"/><br/>
+
+       Porcentagem de lucro:<br/>
+       <input type="text" name="porcento"/><br/>
 
 
        <input type="submit" value="Enviar"/><br/>

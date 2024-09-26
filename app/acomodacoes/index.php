@@ -12,7 +12,7 @@ $permissaoPerfil = $_SESSION["perfil"];
     <head>
 
        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
+        <title>Parnaioca - Consultar quarto</title>
         
         <script>
             

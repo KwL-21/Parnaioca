@@ -8,6 +8,7 @@
      $entradas = $_POST['entrada'];
      $marca = $_POST['marca'];
      $hoje = date('Y-m-d H:i:s');
+     $porcentagem = $_POST['porcento'];
 
      $flag = 0;
      $msg = "";
@@ -30,8 +31,13 @@
         $msg = "Preencha a marca!";
      }
 
+     if($porcentagem == ""){
+      $porcentagem = 0.75;
+     }
 
-     $valorunitario = $valorpago * 1.75;
+
+     $lucro = $valorpago * $porcentagem;
+     $valorunitario = $valorpago + $lucro;
 
 
      if($flag == 0){

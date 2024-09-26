@@ -8,7 +8,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
     <head>
 
        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
+        <title>Parnaioca - Estoque</title>
         
         <script>
             
