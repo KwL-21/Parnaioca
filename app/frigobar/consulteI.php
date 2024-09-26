@@ -41,14 +41,14 @@ date_default_timezone_set('America/Sao_Paulo');
         
         <?php
             if(!empty($_GET["idprodutos"])){
-               $login = $_GET["idprodutos"];
+               $idprodutos = $_GET["idprodutos"];
                
                
-               $sql = "select * from estoque_frigobar where idprodutos like '%{$login}%'";
+               $sql = "select * from estoque_frigobar where idprodutos like '%{$idprodutos}%'";
                $result = mysqli_query($con, $sql);
                $totalregistros = mysqli_num_rows($result); 
 
-               $prod = "SELECT * FROM produtos WHERE idproduto LIKE '{$login}' ";
+               $prod = "SELECT * FROM produtos WHERE idproduto LIKE '{$idprodutos}' ";
                $resultprod = mysqli_query($con, $prod);
                $row1 = mysqli_fetch_assoc($resultprod);
                $nomeprod = $row1['nome'];
@@ -64,7 +64,7 @@ date_default_timezone_set('America/Sao_Paulo');
                    <?php
                 
                    while($row = mysqli_fetch_array($result)){
-                        $idMatricula = $row['idprodutos'];
+                        $idprod = $row['idprodutos'];
                 
 
                        ?>
