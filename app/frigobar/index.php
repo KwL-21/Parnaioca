@@ -4,7 +4,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Area frigobar</title>
+        <title>Parnaioca - Area frigobar</title>
     </head>
     <body>
 

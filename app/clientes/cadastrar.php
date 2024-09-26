@@ -5,7 +5,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
+        <title>Parnaioca - Cadastrar cliente</title>
         
         <noscript>
         <meta http-equiv="refresh" content="0; url=noscript.php"/>

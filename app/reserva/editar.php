@@ -10,7 +10,7 @@ if($_SESSION["perfil"] == "user"){
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
+        <title>Parnaioca - Editar reserva</title>
 
         <noscript>
         <meta http-equiv="refresh" content="0; url=noscript.php"/>

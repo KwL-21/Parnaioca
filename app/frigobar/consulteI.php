@@ -10,7 +10,7 @@ date_default_timezone_set('America/Sao_Paulo');
     <head>
 
        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
+        <title>Parnaioca - Consultar itens</title>
         
         <script>
             
