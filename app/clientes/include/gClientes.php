@@ -54,6 +54,21 @@ date_default_timezone_set('America/Sao_Paulo');
         $msg = "Telefone já cadastrado";
     }
 
+function isMaiorDeIdade($dtnasc) {
+    $dtnasc = new DateTime($dtnasc);
+    
+    $dataAtual = new DateTime();
+    
+    $diferenca = $dataAtual->diff($dtnasc);
+    
+    return $diferenca->y < 18;
+}
+
+if (isMaiorDeIdade($dtnasc)) {
+    $flag = 1;
+    echo "Usuário é menor de idade.";
+}
+
    if($flag == 0){
 
     $sql = "INSERT INTO clientes(nome, email, cpf, nascimento, telefone, estado, cidade, situacao) values('{$nome}','{$email}','{$cpf}','{$dtnasc}','{$telefone}', '{$estado}','{$cidade}','a')";
