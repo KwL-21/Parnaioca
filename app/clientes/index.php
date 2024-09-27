@@ -40,11 +40,11 @@
                     <table width="900px" border="1px">  
                         <tr>
                             <th>Nome</th>
-                            <th>Perfil</th>
+                            <th>Situação do perfil</th>
                             <th>CPF</th>
                             <th>telefone</th>
                             <th>Email</th>
-                            <th>Estadp</th>
+                            <th>Estado</th>
                             <th>Editar</th>
                         </tr>                                                
                    <?php
