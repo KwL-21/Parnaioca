@@ -32,7 +32,7 @@
      }
 
      if($porcentagem == ""){
-      $porcentagem = 0.75;
+      $porcentagem = 0.50;
      }
 
 

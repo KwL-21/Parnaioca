@@ -10,3 +10,15 @@ ID Usuario editado: 5
 Perfil do Operador: a
 ----------------------------
 
+Editado em: 26/09/2024 as 14:52:05
+Editados Por:kawa
+ID Usuario editado: 4
+Perfil do Operador: u
+----------------------------
+
+Editado em: 26/09/2024 as 14:52:25
+Editados Por:teste
+ID Usuario editado: 4
+Perfil do Operador: u
+----------------------------
+
