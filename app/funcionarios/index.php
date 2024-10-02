@@ -1,6 +1,8 @@
 <?php 
 include_once($_SERVER['DOCUMENT_ROOT'].'/app/config/conexao.php');
 include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
+
+$permissaoPerfil = $_SESSION["perfil"];
 ?>
 
 <!DOCTYPE html>
@@ -52,10 +54,16 @@ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
                         <tr>
                             <th>login</th>
                             <th>Perfil</th>
-                            <th>Editar</th>
-                            <th>Excluir</th>
+                           <?php
+                            if($permissaoPerfil !== "u") {
+                                    ?>
+                                      <th>Editar</th>
+                                      <th>Excluir</th>         
+                                    <?php
+                                }
+                            ?>
                         </tr>                                                
-                   <?php
+                        <?php
                 
                    while($row = mysqli_fetch_array($result)){
                         $idMatricula = $row['matricula'];
@@ -71,10 +79,17 @@ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
                                 echo "administrador";
                             }
                             ?></td>
-                             <td><a href="editar.php?idMatricula=<?php echo $idMatricula ?>">...</a></td>
-                             <td><a href="#" onclick="excluir(<?php echo $idMatricula ?>)">X</a></td> 
-                        </tr>
-                        
+                            <?php
+                            if($permissaoPerfil !== "u") {
+                                    ?>
+                                      <td><a href="editar.php?idMatricula=<?php echo $idMatricula ?>">...</a></td>
+                                       <td><a href="#" onclick="excluir(<?php echo $Idacomodacoes ?>)">X</a></td>
+                                    <?php
+                                    }
+                                    ?>
+                            </tr>
+                            
+                           
                         <?php
                    }                   
                    echo "</table>";
@@ -84,7 +99,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
                    
                    echo "Total de registros: ".$totalregistros;
                    
-               }else{
+                }else{
                    echo "Nenhum registro encontrado!";
                }               
                

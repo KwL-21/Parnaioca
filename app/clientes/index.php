@@ -1,6 +1,8 @@
 <?php 
  include($_SERVER['DOCUMENT_ROOT'].'/app/config/conexao.php');
  include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
+ 
+ $permissaoPerfil = $_SESSION["perfil"];
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +47,14 @@
                             <th>telefone</th>
                             <th>Email</th>
                             <th>Estado</th>
-                            <th>Editar</th>
+                            <th>Cidade</th>
+                            <?php
+                                if($permissaoPerfil !== "u") {
+                                    ?>
+                                        <th>Editar</th>
+                                    <?php
+                                }
+                            ?>
                         </tr>                                                
                    <?php
                 
@@ -67,7 +76,14 @@
                             <td><?php echo $row["telefone"]?></td>
                             <td><?php echo $row["email"]?></td>
                             <td><?php echo $row["estado"]?></td>
-                             <td><a href="editar.php?idcliente=<?php echo $idMatricula ?>">...</a></td>
+                            <td><?php echo $row["cidade"]?></td>
+                            <?php
+                            if($permissaoPerfil !== "u") {
+                                    ?>
+                                <td><a href="editar.php?idcliente=<?php echo $idMatricula ?>">...</a></td>
+                                    <?php
+                                }
+                            ?> 
                            
                         <?php
                    }                   

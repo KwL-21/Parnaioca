@@ -1,5 +1,7 @@
 <?php 
 include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
+
+$permissaoPerfil = $_SESSION["perfil"];
 ?>
 <!DOCTYPE html>
 <html>
@@ -85,10 +87,16 @@ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
             <input type="password" name="senha"/><br/>
             
             Perfil:<br/>
+            <input type="radio" name="perfil" value="u" class="required" id="user"/>Usuário<br/>
+            <?php
+            if($permissaoPerfil !== 'u'){
+                
+                ?>
             <input type="radio" name="perfil" value="a" class="required" id="adm"/>Administrador
-            <input type="radio" name="perfil" value="u" class="required" id="user"/>Usuário
             <br/>
-        
+            <?php
+            }
+             ?>
             
             <input type="submit" value="Enviar" />
             

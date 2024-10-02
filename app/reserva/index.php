@@ -56,9 +56,15 @@ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
                             <th>Data de Inicio</th>
                             <th>Data de Termino</th>
                             <th>Situação</th>
-                            <th>Editar</th>
+                            <?
+                            if($permissaoPerfil !== "u") {
+                                    ?>
+                                    <th>Editar</th>
+                                    <?php
+                                }
+                            ?>
                         </tr>                                                
-                   <?php
+                        <?php
                 
                    while($row = mysqli_fetch_array($result)){
                         $idMatricula = $row['idreserva'];
@@ -72,7 +78,13 @@ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
                             <td><?php echo $row["inicio"]?></td>
                             <td><?php echo $row["final"]?></td>
                             <td><?php echo $row["situacao"]?></td>
-                             <td><a href="/app/reserva/editar.php?idReserva=<?php echo $idMatricula ?>">...</a></td> 
+                            <?
+                            if($permissaoPerfil !== "u") {
+                                    ?>
+                                <td><a href="/app/reserva/editar.php?idReserva=<?php echo $idMatricula ?>">...</a></td> 
+                                    <?php
+                                }
+                            ?>
                         </tr>
                         
                         <?php

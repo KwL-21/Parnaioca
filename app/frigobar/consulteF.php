@@ -2,6 +2,8 @@
 include($_SERVER['DOCUMENT_ROOT'].'/app/config/conexao.php');
 include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
 
+$permissaoPerfil = $_SESSION["perfil"];
+
 date_default_timezone_set('America/Sao_Paulo');
 ?>
 
