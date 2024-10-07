@@ -34,12 +34,22 @@ date_default_timezone_set('America/Sao_Paulo');
         <form action="consulteF.php" method="get">
             
             Nome:
-            <input type="text" name="nome" value="%"/>
-            <input type="submit" value="Buscar" />
-            
+            <select name="nome" required>
+                <option value="">Selecione um frigobar</option>
+                <option value="%">Todos os frigobares</option>
+                <?php
+                $sqlfrigobar= mysqli_query($con, "SELECT nome FROM frigobar");
+                
+
+                while($frigobar = mysqli_fetch_assoc($sqlfrigobar)){
+                    ?>
+                    <option value="<?php echo $frigobar['nome']?>"><?php echo $frigobar['nome'] ?></option>
+                    <?php
+                    }
+                    ?>
+             </select>
+             <input type="submit" name="Enviar"/>
         </form>
-        
-        <hr/>
         
         <?php
             if(!empty($_GET["nome"])){

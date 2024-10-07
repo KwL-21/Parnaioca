@@ -32,12 +32,22 @@ $permissaoPerfil = $_SESSION["perfil"];
         <form action="index.php" method="get">
             
             Nome:
-            <input type="text" name="login" value="%"/>
-            <input type="submit" value="Buscar" />
-            
+            <select name="login" required>
+                <option value="">Selecione um funcionario</option>
+                <option value="%">Todos os funcionarios</option>
+                <?php
+                $sqlfuncionario = mysqli_query($con, "SELECT login FROM funcionarios");
+                
+
+                while($funcionario = mysqli_fetch_assoc($sqlfuncionario)){
+                    ?>
+                    <option value="<?php echo $funcionario['login']?>"><?php echo $funcionario['login'] ?></option>
+                    <?php
+                    }
+                    ?>
+             </select>
+             <input type="submit" name="Enviar"/>
         </form>
-        
-        <hr/>
         
         <?php
             if(!empty($_GET["login"])){

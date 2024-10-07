@@ -29,17 +29,26 @@ $permissaoPerfil = $_SESSION["perfil"];
         
     </head>
     <body>
-             <h3>Consulta de acomodações cadastradas</h3>
+             <h3>Consulta de acomodações</h3>
         
         <form action="index.php" method="get">
-            
-            Nome:
-            <input type="text" name="nome" value="%"/>
-            <input type="submit" value="Buscar" />
-            
+             <select name="nome" required>
+                <option value="">Selecione um quarto</option>
+                <option value="%">Todos os quartos</option>
+                <?php
+                $sqlquarto = mysqli_query($con, "SELECT nome FROM acomodacoes");
+                
+
+                while($quartos = mysqli_fetch_assoc($sqlquarto)){
+                    ?>
+                    <option value="<?php echo $quartos['nome']?>"><?php echo $quartos['nome'] ?></option>
+                    <?php
+                    }
+                    ?>
+             </select>
+             <input type="submit" name="Enviar"/>
         </form>
         
-        <hr/>
         
         <?php
             if(!empty($_GET["nome"])){

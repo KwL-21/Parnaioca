@@ -1,4 +1,5 @@
 <?php 
+include($_SERVER['DOCUMENT_ROOT'].'/app/config/conexao.php');
 include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
 ?>
 <!DOCTYPE html>
@@ -12,7 +13,20 @@ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
       <form action="/app/reserva/include/gCheckout.php" method="post" id="f">
 
        Numero da reserva:<br/>
-       <input type="text" name="idreserva" class="required"/><br/>    
+       <select name="idreserva" required>
+                <option value="">Selecione uma reserva</option>
+                <option value="%">Todas as reservas</option>
+                <?php
+                $sqlreserva = mysqli_query($con, "SELECT idreserva FROM reserva");
+                
+
+                while($reservas = mysqli_fetch_assoc($sqlreserva)){
+                    ?>
+                    <option value="<?php echo $reservas['idreserva']?>"><?php echo $reservas['idreserva'] ?></option>
+                    <?php
+                    }
+                    ?>
+             </select><br/>   
        
        <input type="submit" name="Enviar"/>
   </body>

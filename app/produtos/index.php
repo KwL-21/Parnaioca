@@ -30,12 +30,22 @@ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
         <form action="index.php" method="get">
             
             Nome:
-            <input type="text" name="nome" value="%"/>
-            <input type="submit" value="Buscar" />
-            
+            <select name="nome" required>
+                <option value="">Selecione um produto</option>
+                <option value="%">Todos os produtos</option>
+                <?php
+                $sqlprod = mysqli_query($con, "SELECT nome FROM produtos");
+                
+
+                while($produtos = mysqli_fetch_assoc($sqlprod)){
+                    ?>
+                    <option value="<?php echo $produtos['nome']?>"><?php echo $produtos['nome'] ?></option>
+                    <?php
+                    }
+                    ?>
+             </select>
+             <input type="submit" name="Enviar"/>
         </form>
-        
-        <hr/>
         
         <?php
             if(!empty($_GET["nome"])){

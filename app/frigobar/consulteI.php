@@ -32,12 +32,22 @@ date_default_timezone_set('America/Sao_Paulo');
         <form action="consulteI.php" method="get">
             
             Nome:
-            <input type="text" name="idprodutos" value="%"/>
-            <input type="submit" value="Buscar" />
-            
+            <select name="idprodutos" required>
+                <option value="">Selecione um produto</option>
+                <option value="%">Todos os produtos</option>
+                <?php
+                $sqlitens = mysqli_query($con, "SELECT idprodutos FROM estoque_frigobar");
+                
+
+                while($itens = mysqli_fetch_assoc($sqlitens)){
+                    ?>
+                    <option value="<?php echo $itens['idprodutos']?>"><?php echo $itens['idprodutos'] ?></option>
+                    <?php
+                    }
+                    ?>
+             </select>
+             <input type="submit" name="Enviar"/>
         </form>
-        
-        <hr/>
         
         <?php
             if(!empty($_GET["idprodutos"])){
@@ -48,10 +58,11 @@ date_default_timezone_set('America/Sao_Paulo');
                $result = mysqli_query($con, $sql);
                $totalregistros = mysqli_num_rows($result); 
 
-               $prod = "SELECT * FROM produtos WHERE idproduto LIKE '{$idprodutos}' ";
+               if ($totalregistros > 0){
+                $prod = "SELECT * FROM produtos WHERE idproduto LIKE '{$idprodutos}' ";
                $resultprod = mysqli_query($con, $prod);
                $row1 = mysqli_fetch_assoc($resultprod);
-               $nomeprod = $row1['nome'];
+               $nomeprod = $row1['nome'];}
                
                if($totalregistros > 0){
                    ?>

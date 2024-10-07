@@ -1,4 +1,5 @@
 <?php 
+include($_SERVER['DOCUMENT_ROOT'].'/app/config/conexao.php');
 include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
 ?>
 <!DOCTYPE html>
@@ -43,21 +44,18 @@ include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
         <form action="/app/reserva/include/gReserva.php" method="post" id="f">
         
         Acomodação:<br/>
-        <select name="acomodacoes">
-            <option value="">Selecione</option>
-                <option value="Suite_parnaioca">Suite Parnaioca</option>
-                <option value="Suite_Lagoa_azul">Suite Lagoa azul</option>
-                <option value="Suite_Lopes_Mendes">Suite Lopes Mendes</option>
-                <option value="Apartamento_1">Apartamento 1</option>
-                <option value="Apartamento_2">Apartamento 2</option>
-                <option value="Apartamento_3">Apartamento 3</option>
-                <option value="Apartamento_4">Apartamento 4</option>
-                <option value="Apartamento_5">Apartamento 5</option>
-                <option value="Apartamento_6">Apartamento 6</option>
-                <option value="Apartamento_7">Apartamento 7</option>
-                <option value="Apartamento_8">Apartamento 8</option>
-                <option value="Apartamento_9">Apartamento 9</option>
-                <option value="Apartamento_10">Apartamento 10</option>
+            <select name="acomodacoes" required>
+                <option value="">Selecione um quarto</option>
+                <?php
+                $sqlquarto = mysqli_query($con, "SELECT nome FROM acomodacoes");
+                
+
+                while($quartos = mysqli_fetch_assoc($sqlquarto)){
+                    ?>
+                    <option value="<?php echo $quartos['nome']?>"><?php echo $quartos['nome'] ?></option>
+                    <?php
+                    }
+                    ?>
             </select><br/>
             
             Data de Inicio:<br/>

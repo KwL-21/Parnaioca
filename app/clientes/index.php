@@ -19,12 +19,23 @@
         <form action="index.php" method="get">
             
             CPF:
-            <input type="text" name="cpf" value="%"/>
-            <input type="submit" value="Buscar" />
-            
+            <select name="cpf" required>
+                <option value="">Selecione um cliente</option>
+                <option value="%">Todos os clientes</option>
+                <?php
+                $sqlquarto = mysqli_query($con, "SELECT cpf, nome FROM clientes");
+                
+
+                while($quartos = mysqli_fetch_assoc($sqlquarto)){
+                    ?>
+                    <option value="<?php echo $quartos['cpf']?>"><?php echo $quartos['nome'] ?></option>
+                    <?php
+                    }
+                    ?>
+             </select>
+             <input type="submit" name="Enviar"/>
         </form>
         
-        <hr/>
         
         <?php
             if(!empty($_GET["cpf"])){
