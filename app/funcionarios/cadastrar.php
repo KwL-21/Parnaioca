@@ -1,108 +1,111 @@
-<?php 
-include($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
+<?php
+include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
 
 $permissaoPerfil = $_SESSION["perfil"];
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Parnaioca - Cadastrar funcionario</title>
 
-        <noscript>
-        <meta http-equiv="refresh" content="0; url=noscript.php"/>
-        </noscript>
-        
-        <script src="/app/assets/js/jquery.min.js"></script>
-        <script src="/app/assets/js/jquery.validate.js"></script>
-        <script src="/app/assets/js/maskedinput-1.1.2.pack.js"></script>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Parnaioca - Cadastrar funcionario</title>
 
-        <script>
-            $(document).ready(function () {
-                $("#enviar").click(function () {
-                    var vlogin = $("#login").val();
-                    var vsenha = $("#senha").val();
+    <noscript>
+        <meta http-equiv="refresh" content="0; url=noscript.php" />
+    </noscript>
+
+    <script src="/app/assets/js/jquery.min.js"></script>
+    <script src="/app/assets/js/jquery.validate.js"></script>
+    <script src="/app/assets/js/maskedinput-1.1.2.pack.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#enviar").click(function() {
+                var vlogin = $("#login").val();
+                var vsenha = $("#senha").val();
 
 
-                    $.post('gravar.php',
-                            {nome: vnome,
-                                email: vemail,
-                                dtnasc: vdtnasc,
-                                login: vlogin,
-                                senha: vsenha},
-                            function (resp) {
-                                $("#resposta").html(resp);
-                            }
-                    );
-                });
-
-                $("#login").keyup(function () {
-                    var vlogin = $("#login").val();
-                    $.post('/app/funcionarios/include/verificarlogin.php',
-                            {login: vlogin},
-                            function (resp) {
-                                $("#verificacao").html(resp);
-                            }
-                    );
-                });
+                $.post('gravar.php', {
+                        nome: vnome,
+                        email: vemail,
+                        dtnasc: vdtnasc,
+                        login: vlogin,
+                        senha: vsenha
+                    },
+                    function(resp) {
+                        $("#resposta").html(resp);
+                    }
+                );
             });
-        </script>
-        
-        <script>        
-        $(document).ready(function(){
-            $("#f").validate(); 
+
+            $("#login").keyup(function() {
+                var vlogin = $("#login").val();
+                $.post('/app/funcionarios/include/verificarlogin.php', {
+                        login: vlogin
+                    },
+                    function(resp) {
+                        $("#verificacao").html(resp);
+                    }
+                );
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $("#f").validate();
             $("#cpf").mask("999.999.999-99");
             $("#nascimento").mask("99/99/9999");
+        });
+    </script>
+
+    <style>
+        label.error {
+            color: red;
+            font-size: 12px;
+            margin-left: 5px;
         }
-    ); 
-    
-        </script>
-                     
-        <style>
-            label.error{
-                color: red;
-                font-size: 12px;
-                margin-left: 5px;
-            }
-        </style>
-    </head>
-    <body>
-        
-        <h4>Cadastro de Usuário</h4>
-        
-        <form action="/app/funcionarios/include/gFuncionario.php" method="post" id="f">
-           
-           Login:<br/>
-        <input type="text" name="login" id="login"/>
-            <span id="verificacao"></span>
-            <br/>
-            
-            CPF:<br/>
-            <input type="text" name="cpf" class="required" id="cpf"/><br/>
+    </style>
+</head>
 
-            Email:<br/>
-            <input type="text" name="email" class="required email"/> <br/>
+<body>
 
-            Senha:<br/>
-            <input type="password" name="senha"/><br/>
-            
-            Perfil:<br/>
-            <input type="radio" name="perfil" value="u" class="required" id="user"/>Usuário<br/>
-            <?php
-            if($permissaoPerfil !== 'u'){
-                
-                ?>
-            <input type="radio" name="perfil" value="a" class="required" id="adm"/>Administrador
-            <br/>
-            <?php
-            }
-             ?>
-            
-            <input type="submit" value="Enviar" />
-            
-        </form>
-        
+    <h4>Cadastro de Usuário</h4>
+
+    <form action="/app/funcionarios/include/gFuncionario.php" method="post" id="f">
+
+        Login:<br />
+        <input type="text" name="login" id="login" />
+        <span id="verificacao"></span>
+        <br />
+
+        CPF:<br />
+        <input type="text" name="cpf" class="required" id="cpf" /><br />
+
+        Email:<br />
+        <input type="text" name="email" class="required email" /> <br />
+
+        Senha:<br />
+        <input type="password" name="senha" /><br />
+
+        Perfil:<br />
+        <input type="radio" name="perfil" value="u" class="required" id="user" />Usuário<br />
         <?php
+        if ($permissaoPerfil !== 'u') {
+
         ?>
-    </body>
+            <input type="radio" name="perfil" value="a" class="required" id="adm" />Administrador
+            <br />
+        <?php
+        }
+        ?>
+
+        <input type="submit" value="Enviar" />
+
+    </form>
+
+    <?php
+    ?>
+</body>
+
 </html>

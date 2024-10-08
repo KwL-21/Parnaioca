@@ -1,24 +1,23 @@
-<?php 
-include_once($_SERVER['DOCUMENT_ROOT'].'/login/validar.php');
+<?php
+include_once($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
 ?>
 
 <a href="/app/funcionarios/index.php">Funcionarios</a>
-<br/>
+<br />
 
 <a href="/app/acomodacoes/index.php">Acomodações</a>
-<br/>
+<br />
 
 <a href="/app/clientes/index.php">Clientes</a>
-<br/>
+<br />
 
 <a href="/app/reserva/index.php">Reservas</a>
-<br/>
+<br />
 
 <a href="/app/frigobar/index.php">Frigobar<a>
-<br/>
+        <br />
 
-<a href="/app/produtos/index.php">Produtos</a>
-<br/>
+        <a href="/app/produtos/index.php">Produtos</a>
+        <br />
 
-<a href="/login/sair.php">Sair</a>
-
+        <a href="/login/sair.php">Sair</a>

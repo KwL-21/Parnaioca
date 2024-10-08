@@ -1,4 +1,3 @@
 <?php
-    
-echo time();
 
+echo time();
