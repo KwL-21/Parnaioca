@@ -38,20 +38,15 @@ include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
 
     <form action="/app/frigobar/include/gConsumo.php" method="post" id="f">
 
-        Nome acomodação:<br />
-        <input type="text" name="acomodacao" /><br />
+        <input type="text" name="acomodacao" placeholder="Nome da acomodação" /><br /><br/>
 
-        Número da reserva:<br />
-        <input type="text" name="idreserva" /><br />
+        <input type="text" name="idreserva" placeholder="Número da reserva"/><br /><br/>
 
-        Nome do produto:<br />
-        <input type="text" name="produto" /><br />
+        <input type="text" name="produto" placeholder="Nome do produto"/><br /><br/>
 
-        ID do frigobar:<br />
-        <input type="text" name="idfrigobar" /><br />
+        <input type="text" name="idfrigobar" placeholder="ID do frigobar" /><br /><br/>
 
-        Quantidade consumida:<br />
-        <input type="text" name="quantidade" /><br />
+        <input type="text" name="quantidade" placeholder="Quantidade consumida" /><br /><br/>
 
         <input type="submit" value="Enviar" />
 

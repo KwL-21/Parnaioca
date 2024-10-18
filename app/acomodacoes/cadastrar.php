@@ -39,18 +39,14 @@ include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
 
     <form action="/app/acomodacoes/include/gAcomodacoes.php" method="post" id="f">
 
-        Acomodação:<br />
-        <input type="text" name="acomodacoes" required /><br />
+        <input type="text" name="acomodacoes" placeholder="Nome da acomodação" required /><br /><br />
 
-        Valor da Acomodação:<br />
-        <input type="text" name="valor" required /> <br />
+        <input type="text" name="valor" placeholder="Valor da diaria" required /><br /><br />
 
-        Capacidade:<br />
-        <input type="text" name="capacidade" required /><br />
+        <input type="text" name="capacidade" placeholder="Capacidade de hospedes" required /><br /><br />
 
-        Tipo de Acomodação:<br />
         <select name="tipo"></br>
-            <option value="">Selecione</option>
+            <option value="">Selecione um tipo</option>
             <option value="s">Suite</option>
             <option value="a">Apartamento</option>
         </select> <br />

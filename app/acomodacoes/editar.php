@@ -58,14 +58,11 @@ if ($_SESSION["perfil"] == "u") {
 
         <input type="hidden" readonly="true" name="idacomodacoes" value="<?php echo $row["idacomodacoes"] ?>" />
 
-        Acomodação:<br />
-        <input type="text" name="nome" value="<?php echo $row['nome'] ?>"><br />
+        <input type="text" name="nome" placeholder="Nome da acomodação" value="<?php echo $row['nome'] ?>"><br /><br />
 
-        Valor da Acomodação:<br />
-        <input type="text" name="valor" value="<?php echo $row['valor'] ?>" /> <br />
+        <input type="text" name="valor" placeholder="Valor da diaria" value="<?php echo $row['valor'] ?>" /> <br /><br />
 
-        Capacidade:<br />
-        <input type="text" name="capacidade" value="<?php echo $row['capacidade'] ?>" /><br />
+        <input type="text" name="capacidade" placeholder="Capacidade de hospedes" value="<?php echo $row['capacidade'] ?>" /><br /><br />
 
         Tipo de Acomodação:<br />
         <select name="tipo"></br>

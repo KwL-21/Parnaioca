@@ -14,13 +14,11 @@ define('ROOT_PATH', dirname(__FILE__));
 
     <h4>Bem vindo a Parnaioca</h4>
 
-    <form action="/login/verificarlogin.php" method="post" id="f">
+    <form action="./login/verificarlogin.php" method="post" id="f">
 
-        Login:<br />
-        <input type="text" name="login" /><br />
+        <input type="text" name="login" placeholder="Login" /><br /><br />
 
-        Senha:<br />
-        <input type="password" name="senha" /><br />
+        <input type="password" name="senha" placeholder="Senha" /><br /><br />
 
 
 

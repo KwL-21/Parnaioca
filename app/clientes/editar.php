@@ -68,20 +68,19 @@ if ($_SESSION["perfil"] == "user") {
 
         <input type="hidden" readonly="true" name="idusuario" value="<?php echo $row["idcliente"] ?>" />
 
-        Nome:<br />
-        <input type="text" name="nome" class="required" minlength="3" value="<?php echo $row['nome'] ?>" /><br />
+        <input type="text" name="nome" class="required" placeholder="Nome do cliente" minlength="3" value="<?php echo $row['nome'] ?>" /><br />
 
         E-mail:<br />
-        <input type="text" name="email" class="required email" value="<?php echo $row['email'] ?>" /><br />
+        <input type="text" name="email" class="required email" placeholder="E-mail" value="<?php echo $row['email'] ?>" /><br />
 
         Cpf:<br />
-        <input type="text" name="cpf" class="required" id="cpf" value="<?php echo $row['cpf'] ?>" /><br />
+        <input type="text" name="cpf" class="required" id="cpf" placeholder="CPF" value="<?php echo $row['cpf'] ?>" /><br />
 
         Data de Nascimento:<br />
-        <input type="text" name="dtnasc" class="required" id="dtnasc" value="<?php echo $row['nascimento'] ?>" /><br />
+        <input type="text" name="dtnasc" class="required" id="dtnasc" placeholder="Data de nascimento" value="<?php echo $row['nascimento'] ?>" /><br />
 
         Telefone:<br />
-        <input type="text" name="telefone" value="<?php echo $row['telefone'] ?>"><br />
+        <input type="text" name="telefone" placeholder="Telefone" value="<?php echo $row['telefone'] ?>"><br />
 
         Estado:<br />
         <select name="estado" id="estado">

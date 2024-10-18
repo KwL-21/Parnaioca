@@ -39,17 +39,13 @@ include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
     <h3>Cadastrar frigobar em acomodações</h3>
     <form action="/app/frigobar/include/gFrigobar.php" method="post" id="f">
 
-        Nome do frigobar:<br />
-        <input type="text" name="frigobar"><br />
+        <input type="text" name="frigobar" placeholder="Nome do frigobar"><br /><br/>
 
-        Data de aquisição:<br />
-        <input type="text" name="aquisicao" class="required" id="dataaquisicao"><br />
+        <input type="text" name="aquisicao" class="required" id="dataaquisicao" placeholder="Data de aquisição"><br /><br/>
 
-        Capacidade do Frigobar:<br />
-        <input type="text" name="tamanho" class="required"><br />
+        <input type="text" name="tamanho" class="required" placeholder="Capacidade do frigobar"><br /><br/>
 
-        Acomodação do frigobar:<br />
-        <input type="text" name="acomodacao" class="required"><br />
+        <input type="text" name="acomodacao" class="required" placeholder="Nome da acomodação"><br /><br/>
 
         <input type="submit" value="Enviar">
 
