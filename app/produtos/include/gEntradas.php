@@ -39,7 +39,11 @@ if ($qtvendas > $entradas) {
 
 if ($flag == 0) {
 
-    $sql = "UPDATE produtos SET entradas = '{$entradas}', estoque = '{$iestoque}', ultimacompra = '{$hoje}' ";
+    $sql = "UPDATE produtos SET
+    entradas = '{$entradas}',
+    estoque = '{$iestoque}',
+    ultimacompra = '{$hoje}' ";
+
     if (mysqli_query($con, $sql)) {
         $msg = "Gravado com sucesso!";
     } else {

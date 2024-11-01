@@ -42,8 +42,23 @@ $valorunitario = $valorpago + $lucro;
 
 if ($flag == 0) {
 
-   $sql = "INSERT INTO produtos (nome, valorunitario, valorpagounitario, entradas, estoque, marca, ultimacompra) values
-        ('{$nomeproduto}','{$valorunitario}', '{$valorpago}','{$entradas}', '{$entradas}','{$marca}', '{$hoje}')";
+   $sql = "INSERT INTO produtos
+   (nome,
+   valorunitario,
+   valorpagounitario,
+   entradas,
+   estoque, 
+   marca, 
+   ultimacompra) 
+   values
+   ('{$nomeproduto}',
+   '{$valorunitario}', 
+   '{$valorpago}',
+   '{$entradas}', 
+   '{$entradas}',
+   '{$marca}', 
+   '{$hoje}')";
+
    if (mysqli_query($con, $sql)) {
       $msg = "Gravado com sucesso!";
    } else {

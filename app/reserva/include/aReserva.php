@@ -20,9 +20,13 @@ $dataf = array_reverse($dataf);
 $dtfinal = implode("-", $dataf);
 
 
-$sql = "update reserva set 
-            Acomodacoes = '{$acomodacao}', inicio = '{$dtinicio}', final = '{$dtfinal}', cliente = '{$CPF}', situacao= '{$situacao}'
-            where idreserva = " . $idReserva;
+$sql = "UPDATE reserva SET 
+            Acomodacoes = '{$acomodacao}', 
+            inicio = '{$dtinicio}', 
+            final = '{$dtfinal}', 
+            cliente = '{$CPF}', 
+            situacao= '{$situacao}'
+            WHERE idreserva = " . $idReserva;
 
 if (mysqli_query($con, $sql)) {
     echo "Dados atualizados com sucesso!";

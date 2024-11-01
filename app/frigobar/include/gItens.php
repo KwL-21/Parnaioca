@@ -44,8 +44,19 @@ $nestoque = $estoque - $quantidade;
 
 if ($flag == 0) {
 
-    $sql = "INSERT INTO estoque_frigobar (idfrigobar, idprodutos, quantidade) values('{$idfrigobar}','{$idproduto}', '{$quantidade}')";
-    $saidas = "UPDATE  produtos SET saidas = '{$quantidade}', estoque = '{$nestoque}' WHERE idproduto = '{$idproduto}'";
+    $sql = "INSERT INTO estoque_frigobar
+    (idfrigobar,
+    idprodutos,
+    quantidade)
+    values('{$idfrigobar}',
+    '{$idproduto}',
+    '{$quantidade}')";
+
+    $saidas = "UPDATE  produtos SET
+    saidas = '{$quantidade}',
+    estoque = '{$nestoque}'
+    WHERE idproduto = '{$idproduto}'";
+
     if (mysqli_query($con, $sql)) {
         if (mysqli_query($con, $saidas)) {
             $msg = "Gravado com sucesso!";

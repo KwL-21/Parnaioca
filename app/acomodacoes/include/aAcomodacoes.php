@@ -13,7 +13,10 @@ $Tipoacomodacao = $_POST["tipo"];
 
 
 $sql = "update acomodacoes set 
-            nome = '{$acomodacoes}', valor = '{$Valoracomodacao}', capacidade = '{$capacidade}', tipo = '{$Tipoacomodacao}'
+            nome = '{$acomodacoes}',
+            valor = '{$Valoracomodacao}',
+            capacidade = '{$capacidade}',
+            tipo = '{$Tipoacomodacao}'
             where idacomodacoes like '{$IDacomodacoes}'";
 
 if (mysqli_query($con, $sql)) {

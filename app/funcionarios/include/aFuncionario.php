@@ -11,9 +11,13 @@ $senha = md5($_POST["senha"]);
 $perfil =  $_POST["perfil"];
 
 
-$sql = "update funcionarios set 
-            login = '{$login}', cpf = '{$CPF}', email = '{$email}', senha = '{$senha}', perfil = '{$perfil}'
-            where matricula = " . $idsuario;
+$sql = "UPDATE funcionarios SET 
+            login = '{$login}',
+            cpf = '{$CPF}',
+            email = '{$email}',
+            senha = '{$senha}',
+            perfil = '{$perfil}'
+            WHERE matricula = " . $idsuario;
 
 if (mysqli_query($con, $sql)) {
     echo "Dados atualizados com sucesso!";

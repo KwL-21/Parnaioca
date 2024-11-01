@@ -72,7 +72,24 @@ if (isMaiorDeIdade($dtnasc)) {
 
 if ($flag == 0) {
 
-    $sql = "INSERT INTO clientes(nome, email, cpf, nascimento, telefone, estado, cidade, situacao) values('{$nome}','{$email}','{$cpf}','{$dtnasc}','{$telefone}', '{$estado}','{$cidade}','a')";
+    $sql = "INSERT INTO clientes
+    (nome,
+    email,
+    cpf,
+    nascimento,
+    telefone,
+    estado,
+    cidade,
+    situacao)
+    values
+    ('{$nome}',
+    '{$email}',
+    '{$cpf}',
+    '{$dtnasc}',
+    '{$telefone}',
+    '{$estado}',
+    '{$cidade}',
+    'a')";
 
     if (mysqli_query($con, $sql)) {
         echo "Gravado com sucesso!";

@@ -72,8 +72,24 @@ if (mysqli_num_rows($resultquantidade) > 0) {
 
 if ($flag == 0) {
 
-    $sql = "INSERT INTO consumidos (idacomodacoes, idreserva, idcheckin, idestoque, idfrigobar, quantidade, valor, data) values
-        ('{$idacomodacoes}','{$idreserva}', '{$idcheckin}','{$idproduto}','$idfrigobar', '{$quantidade}','{$valor}','{$hoje}')";
+    $sql = "INSERT INTO consumidos
+    (idacomodacoes,
+    idreserva,
+    idcheckin,
+    idestoque,
+    idfrigobar,
+    quantidade,
+    valor,
+    data)
+    values
+    ('{$idacomodacoes}',
+    '{$idreserva}',
+    '{$idcheckin}',
+    '{$idproduto}',
+    '$idfrigobar',
+    '{$quantidade}',
+    '{$valor}',
+    '{$hoje}')";
     if (mysqli_query($con, $sql)) {
         $msg = "Gravado com sucesso!";
     } else {

@@ -50,7 +50,17 @@
   }
 
   if ($flag == 0) {
-    $sql = "INSERT INTO checkout (idreserva, consumo, totalapagar, situacao) VALUES ('{$idreserva}','{$consumo}','{$total}','p')";
+    $sql = "INSERT INTO checkout 
+    (idreserva, 
+    consumo, 
+    totalapagar, 
+    situacao) 
+    VALUES 
+    ('{$idreserva}',
+    '{$consumo}',
+    '{$total}',
+    'p')";
+
     if ($resultsql = mysqli_query($con, $sql)) {
       $msg = "Check-out gravado, Total a pagar R$" . $total;
     } else {

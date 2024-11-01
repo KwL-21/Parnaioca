@@ -36,7 +36,7 @@ $sqlVerifica = "select 1 from funcionarios where CPF = '{$CPF}'";
 $resultVerifica = mysqli_query($con, $sqlVerifica);
 if (mysqli_num_rows($resultVerifica) == 1) {
     $flag = 1;
-    $msg = "</br> Cliente já cadastrado!";
+    $msg = "</br> Funcionario já cadastrado!";
 }
 
 if ($perfil = "") {
@@ -46,7 +46,19 @@ if ($perfil = "") {
 
 if ($flag == 0) {
 
-    $sql = "INSERT INTO funcionarios (login, cpf, email, senha, perfil) values('{$login}','{$CPF}','{$email}','{$senha}','{$Perfil}')";
+    $sql = "INSERT INTO funcionarios
+    (login,
+    cpf,
+    email,
+    senha,
+    perfil)
+    values
+    ('{$login}',
+    '{$CPF}',
+    '{$email}',
+    '{$senha}',
+    '{$Perfil}')";
+
     if (mysqli_query($con, $sql)) {
         $msg = "Gravado com sucesso!";
     } else {

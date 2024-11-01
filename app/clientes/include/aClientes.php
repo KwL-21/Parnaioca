@@ -19,9 +19,15 @@ $data = array_reverse($data);
 $dtnasc = implode("-", $data);
 
 
-$sql = "update clientes set 
-            nome = '{$nome}', nascimento = '{$dtnasc}', email = '{$email}', estado = '{$estado}', cidade = '{$cidade}', situacao = '{$perfil}', telefone = '{$telefone}'
-            WHERE idcliente =" . $idusuario;
+$sql = "UPDATE clientes SET 
+        nome = '{$nome}',
+        nascimento = '{$dtnasc}',
+        email = '{$email}',
+        estado = '{$estado}',
+        cidade = '{$cidade}',
+        situacao = '{$perfil}',
+        telefone = '{$telefone}'
+        WHERE idcliente =" . $idusuario;
 
 if (mysqli_query($con, $sql)) {
     echo "Dados atualizados com sucesso!";

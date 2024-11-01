@@ -24,7 +24,17 @@ if (mysqli_num_rows($resultacomodacoes) == 1) {
 
 if ($flag == 0) {
 
-    $sql = "INSERT INTO acomodacoes (nome, valor, capacidade, tipo) values('{$acomodacoes}','{$Valoracomodacao}', '{$capacidade}','{$Tipoacomodacao}')";
+    $sql = "INSERT INTO acomodacoes 
+    (nome,
+    valor,
+    capacidade,
+    tipo)
+     values
+    ('{$acomodacoes}',
+    '{$Valoracomodacao}',
+     '{$capacidade}',
+     '{$Tipoacomodacao}')";
+
     if (mysqli_query($con, $sql)) {
         $msg = "Gravado com sucesso!";
     } else {

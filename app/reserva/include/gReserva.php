@@ -63,7 +63,18 @@ if (mysqli_num_rows($resultreserva) > 0) {
 
 if ($flag == 0) {
 
-    $sql = "INSERT INTO reserva(acomodacoes, inicio, final, situacao, cliente) values('{$acomodacao}','{$dtinicio}','{$dtfinal}','reservado','{$CPF}' )";
+    $sql = "INSERT INTO reserva
+    (acomodacoes, 
+    inicio, 
+    final, 
+    situacao, 
+    cliente) 
+    values
+    ('{$acomodacao}',
+    '{$dtinicio}',
+    '{$dtfinal}',
+    'reservado',
+    '{$CPF}' )";
 
     if (mysqli_query($con, $sql)) {
         $msg = "Gravada reserva de número:" . mysqli_insert_id($con);

@@ -36,7 +36,16 @@ if (mysqli_num_rows($resultacomodacao) > 0) {
 
 if ($flag == 0) {
 
-    $sql = "INSERT INTO frigobar (nome, dataaquisicao, capacidade, acomodacao) values('{$frigobar}','{$aquisicao}', '{$tamanho}','{$acomodacao}')";
+    $sql = "INSERT INTO frigobar
+    (nome,
+    dataaquisicao,
+    capacidade,
+    acomodacao)
+    values
+    ('{$frigobar}',
+    '{$aquisicao}',
+    '{$tamanho}',
+    '{$acomodacao}')";
     if (mysqli_query($con, $sql)) {
         $msg = "Gravado com sucesso!";
     } else {

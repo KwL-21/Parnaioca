@@ -50,9 +50,30 @@ if ($estacionamento <= 1) {
 }
 
 if ($flag == 0); {
-    $sql = "INSERT INTO checkin (idReserva, hospedes, pagamento) VALUES ('{$idreserva}', '{$hopedes}', '{$pagamento}')";
-    $update = "UPDATE reserva SET situacao = 'ocupado' WHERE idReserva = $idreserva";
-    $estacionamento = "INSERT INTO estacionamento (idreserva, vagas, cliente, placa) Values ('{$idreserva}', '{$vagas}', '{$cliente}', '{$placa}')";
+    $sql = "INSERT INTO checkin 
+    (idReserva, 
+    hospedes, 
+    pagamento) 
+    VALUES 
+    ('{$idreserva}', 
+    '{$hopedes}', 
+    '{$pagamento}')";
+
+    $update = "UPDATE reserva SET
+     situacao = 'ocupado' 
+     WHERE idReserva = $idreserva";
+
+    $estacionamento = "INSERT INTO estacionamento
+    (idreserva, 
+    vagas, 
+    cliente, 
+    placa) 
+    Values 
+    ('{$idreserva}', 
+    '{$vagas}', 
+    '{$cliente}', 
+    '{$placa}')";
+
     if (mysqli_query($con, $sql)) {
         if (mysqli_query($con, $update)) {
             if (mysqli_query($con, $estacionamento)) {
