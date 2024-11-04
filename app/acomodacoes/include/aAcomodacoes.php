@@ -10,7 +10,15 @@ $Valoracomodacao = $_POST["valor"];
 $capacidade = $_POST["capacidade"];
 $Tipoacomodacao = $_POST["tipo"];
 
+if ($Valoracomodacao <= 0) {
+    $flag = 1;
+    $msg = "Valor inválido";
+}
 
+if ($capacidade <= 0) {
+    $flag = 1;
+    $msg = "Valor inválido, Selecione um valor maior que 0";
+}
 
 $sql = "update acomodacoes set 
             nome = '{$acomodacoes}',
@@ -19,8 +27,12 @@ $sql = "update acomodacoes set
             tipo = '{$Tipoacomodacao}'
             where idacomodacoes like '{$IDacomodacoes}'";
 
-if (mysqli_query($con, $sql)) {
-    echo "Dados atualizados com sucesso!";
+if ($flag == 0) {
+    if (mysqli_query($con, $sql)) {
+        $msg = "Dados atualizados com sucesso!";
+    } else {
+        $msg = "Erro ao gravar!";
+    }
 
 
     $log = fopen("Editados.txt", "a+");
