@@ -1,6 +1,6 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/app/config/conexao.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
+include('../config/conexao.php');
+include('../../login/validar.php');
 
 if ($_SESSION["perfil"] == "user") {
     header("Location:Parnaioca/painel.php");
@@ -50,7 +50,7 @@ if ($_SESSION["perfil"] == "user") {
     ?>
     <h3>Editar Cadastro</h3>
 
-    <form action="/app/reserva/include/aReserva.php" method="post" id="f">
+    <form action="./include/aReserva.php" method="post" id="f">
 
         <input type="hidden" readonly="true" name="idusuario" value="<?php echo $row['idreserva'] ?>" />
 

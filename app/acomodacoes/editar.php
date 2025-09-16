@@ -1,11 +1,11 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/app/config/conexao.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
+include('../config/conexao.php');
+include('../../login/validar.php');
 
 date_default_timezone_set('America/Sao_Paulo');
 
 if ($_SESSION["perfil"] == "u") {
-    header("Location:/app/funcionarios/include/painel.php");
+    header("Location: ../funcionarios/include/painel.php");
     die();
 }
 ?>
@@ -55,7 +55,7 @@ if ($_SESSION["perfil"] == "u") {
     ?>
     <h3>Editar Acomodações</h3>
 
-    <form action="/app/acomodacoes/include/aAcomodacoes.php" method="post" id="f">
+    <form action="./include/aAcomodacoes.php" method="post" id="f">
 
         <input type="hidden" readonly="true" name="idacomodacoes" value="<?php echo $row["idacomodacoes"] ?>" />
 

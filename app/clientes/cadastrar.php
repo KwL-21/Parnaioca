@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
+include('../../login/validar.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,7 +51,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
 
     <h4>Cadastro de Clientes</h4>
 
-    <form action="/app/clientes/include/gClientes.php" method="post" id="f">
+    <form action="./include/gClientes.php" method="post" id="f">
 
         <input type="text" name="nome" placeholder="Nome do cliente" class="required" minlength="3" /><br /><br/>
 

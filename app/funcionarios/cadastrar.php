@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
+include('../../login/validar.php');
 
 $permissaoPerfil = $_SESSION["perfil"];
 ?>
@@ -42,7 +42,7 @@ $permissaoPerfil = $_SESSION["perfil"];
 
             $("#login").keyup(function() {
                 var vlogin = $("#login").val();
-                $.post('/app/funcionarios/include/verificarlogin.php', {
+                $.post('./include/verificarlogin.php', {
                         login: vlogin
                     },
                     function(resp) {
@@ -74,7 +74,7 @@ $permissaoPerfil = $_SESSION["perfil"];
 
     <h4>Cadastro de Usuário</h4>
 
-    <form action="/app/funcionarios/include/gFuncionario.php" method="post" id="f">
+    <form action="./include/gFuncionario.php" method="post" id="f">
 
         Login:<br />
         <input type="text" name="login" id="login" />

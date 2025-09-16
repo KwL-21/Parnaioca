@@ -1,6 +1,6 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/app/config/conexao.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
+include('../config/conexao.php');
+include('../../login/validar.php');
 
 $permissaoPerfil = $_SESSION["perfil"];
 ?>
@@ -20,7 +20,7 @@ $permissaoPerfil = $_SESSION["perfil"];
         function excluir(mat) {
 
             if (confirm('Deseja realmente excluir ?')) {
-                location.href = '/app/acomodacoes/include/eAcomodacoes.php?IDacomodacoes=' + mat;
+                location.href = './include/eAcomodacoes.php?IDacomodacoes=' + mat;
             }
 
         }
@@ -122,8 +122,8 @@ $permissaoPerfil = $_SESSION["perfil"];
     }
     ?>
     <hr />
-    <a href="/app/acomodacoes/cadastrar.php">Cadastrar acomodação</a> </br>
-    <a href="/app/funcionarios/include/painel.php">Pagina Inicial</a>
+    <a href="./cadastrar.php">Cadastrar acomodação</a> </br>
+    <a href="../funcionarios/include/painel.php">Pagina Inicial</a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 

@@ -1,6 +1,6 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/app/config/conexao.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
+include('../../config/conexao.php');
+include('/login/validar.php');
 
 $acomodacao = $_POST['acomodacoes'];
 $dtinicio = $_POST['inicio'];
@@ -87,4 +87,4 @@ mysqli_close($con);
 
 ?>
 <br />
-<a href="/app/funcionarios/include/painel.php">Menu principal</a>
+<a href="../../funcionarios/include/painel.php">Menu principal</a>

@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
+include_once('../../../login/validar.php');
 ?>
 <!DOCTYPE html>
 
@@ -9,22 +9,22 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
 
 
 </head>
-<a href="/app/funcionarios/index.php">Funcionarios</a>
+<a href="../index.php">Funcionarios</a>
 <br />
 
-<a href="/app/acomodacoes/index.php">Acomodações</a>
+<a href="../../acomodacoes/index.php">Acomodações</a>
 <br />
 
-<a href="/app/clientes/index.php">Clientes</a>
+<a href="../../clientes/index.php">Clientes</a>
 <br />
 
-<a href="/app/reserva/index.php">Reservas</a>
+<a href="../../reserva/index.php">Reservas</a>
 <br />
 
-<a href="/app/frigobar/index.php">Frigobar<a>
-                <br />
+<a href="../../frigobar/index.php">Frigobar<a>
+<br />
 
-                <a href="/app/produtos/index.php">Produtos</a>
-                <br />
+<a href="../../produtos/index.php">Produtos</a>
+<br />
 
-                <a href="/login/sair.php">Sair</a>
+ <a href="../../../login/sair.php">Sair</a>

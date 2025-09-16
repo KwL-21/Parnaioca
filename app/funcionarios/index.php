@@ -1,6 +1,6 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'] . '/app/config/conexao.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
+include_once('../config/conexao.php');
+include('../../login/validar.php');
 
 $permissaoPerfil = $_SESSION["perfil"];
 ?>
@@ -18,7 +18,7 @@ $permissaoPerfil = $_SESSION["perfil"];
         function excluir(mat) {
 
             if (confirm('Deseja realmente excluir ?')) {
-                location.href = '/app/funcionarios/include/eFuncionario.php?idusuario=' + mat;
+                location.href = './include/eFuncionario.php?idusuario=' + mat;
             }
 
         }
@@ -30,7 +30,7 @@ $permissaoPerfil = $_SESSION["perfil"];
 <body>
     <h3>Consulta de Registro</h3>
 
-    <form action="index.php" method="get">
+    <form action="./index.php" method="get">
 
         Nome:
         <select name="login" required>
@@ -93,7 +93,7 @@ $permissaoPerfil = $_SESSION["perfil"];
                         <?php
                         if ($permissaoPerfil !== "u") {
                         ?>
-                            <td><a href="editar.php?idMatricula=<?php echo $idMatricula ?>">...</a></td>
+                            <td><a href="./editar.php?idMatricula=<?php echo $idMatricula ?>">...</a></td>
                             <td><a href="#" onclick="excluir(<?php echo $Idacomodacoes ?>)">X</a></td>
                         <?php
                         }
@@ -117,8 +117,8 @@ $permissaoPerfil = $_SESSION["perfil"];
     }
     ?>
     <hr />
-    <a href="/app/funcionarios/cadastrar.php">Cadastrar funcionarios</a> <br />
-    <a href="/app/funcionarios/include/painel.php">Pagina Inicial</a>
+    <a href="./cadastrar.php">Cadastrar funcionarios</a> <br />
+    <a href="./include/painel.php">Pagina Inicial</a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 

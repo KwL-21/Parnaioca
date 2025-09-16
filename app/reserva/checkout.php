@@ -1,6 +1,6 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/app/config/conexao.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
+include('../config/conexao.php');
+include('../../login/validar.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,7 +14,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
 
 <body>
 
-  <form action="/app/reserva/include/gCheckout.php" method="post" id="f">
+  <form action="./include/gCheckout.php" method="post" id="f">
 
     Numero da reserva:<br />
     <select name="idreserva" required>

@@ -1,6 +1,6 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/app/config/conexao.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
+include('../config/conexao.php');
+include('../../login/validar.php');
 
 date_default_timezone_set('America/Sao_Paulo');
 
@@ -63,7 +63,7 @@ if ($_SESSION["perfil"] == "user") {
     ?>
     <h3>Editar Cadastro</h3>
 
-    <form action="/app/clientes/include/aClientes.php" method="post" id="f">
+    <form action="./include/aClientes.php" method="post" id="f">
 
 
         <input type="hidden" readonly="true" name="idusuario" value="<?php echo $row["idcliente"] ?>" />

@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
+include_once('../../../login/validar.php');
 ?>
 
 <head>
@@ -21,9 +21,9 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
 <br />
 
 <a href="/app/frigobar/index.php">Frigobar<a>
-                <br />
+<br />
 
-                <a href="/app/produtos/index.php">Produtos</a>
-                <br />
+<a href="/app/produtos/index.php">Produtos</a>
+<br />
 
-                <a href="/login/sair.php">Sair</a>
+<a href="/login/sair.php">Sair</a>

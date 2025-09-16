@@ -1,11 +1,11 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/app/config/conexao.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
+include('../../config/conexao.php');
+include('../../../login/validar.php');
 
 date_default_timezone_set('America/Sao_Paulo');
 
 if ($_SESSION["perfil"] == "u") {
-    header("Location:/app/funcionarios/include/painel.php");
+    header("Location:./painel.php");
     die();
 }
 ?>
@@ -44,7 +44,7 @@ if ($_SESSION["perfil"] == "u") {
 
     ?>
     <br />
-    <a href="/app/funcionarios/include/painel.php">Voltar para o Painel</a>
+    <a href="./painel.php">Voltar para o Painel</a>
 
 
 </body>

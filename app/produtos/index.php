@@ -1,6 +1,6 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/app/config/conexao.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
+include('../config/conexao.php');
+include('../../login/validar.php');
 ?>
 
 <!DOCTYPE html>
@@ -11,17 +11,6 @@ include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Parnaioca - Estoque</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <script>
-        function excluir(mat) {
-
-            if (confirm('Deseja realmente excluir ?')) {
-                location.href = 'excluir.php?idusuario=' + mat;
-            }
-
-        }
-    </script>
-
 
 </head>
 
@@ -96,9 +85,9 @@ include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
     }
     ?>
     <hr />
-    <a href="/app/produtos/cadastrar.php">Cadastrar produtos</a><br />
-    <a href="/app/produtos/entradas.php">Registrar entradas</a><br />
-    <a href="/app/funcionarios/include/painel.php">Pagina Inicial</a>
+    <a href="./cadastrar.php">Cadastrar produtos</a><br />
+    <a href="./entradas.php">Registrar entradas</a><br />
+    <a href="../funcionarios/include/painel.php">Pagina Inicial</a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 

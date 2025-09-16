@@ -1,6 +1,6 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/app/config/conexao.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
+include('/app/config/conexao.php');
+include('/login/validar.php');
 
 date_default_timezone_set('America/Sao_Paulo');
 

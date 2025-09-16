@@ -1,10 +1,10 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
+include('../../../login/validar.php');
 
 echo $telefone = trim($_POST["telefene"]);
 
 if (!empty($login)) {
-    include_once './conexao.php';
+    include_once '../../config/conexao.php';
 
     $sql = "select * from clientes where telefone = '{$telefone}'";
     $result = @mysqli_query($con, $sql);

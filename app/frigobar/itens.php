@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
+include('../../login/validar.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,7 +38,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
 <body>
 
     <h3>Cadastro de itens no estoque</h3>
-    <form action="/app/frigobar/include/gItens.php" method="post" id="f">
+    <form action="./include/gItens.php" method="post" id="f">
 
         ID do frigobar:<br />
         <input type="text" name="idfrigobar" class="required"><br />

@@ -1,6 +1,6 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/app/config/conexao.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
+include('../../config/conexao.php');
+include('../../../validar.php');
 
 date_default_timezone_set('America/Sao_Paulo');
 
@@ -71,6 +71,6 @@ mysqli_close($con);
 
 ?>
 <br />
-<a href="/app/funcionarios/cadastrar.php">Cadastrar novo usuário</a>
+<a href="../cadastrar.php">Cadastrar novo usuário</a>
 <br />
-<a href="/app/funcionarios/include/painel.php">Painel de Controle</a>
+<a href="./painel.php">Painel de Controle</a>

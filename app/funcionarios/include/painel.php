@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
+include_once('../../../login/validar.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,9 +21,9 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
 
     <?php
     if ($_SESSION["perfil"] == "a") {
-        include($_SERVER['DOCUMENT_ROOT'] . '/app/funcionarios/menu_adm.php');
+        include('../menu_adm.php');
     } elseif ($_SESSION["perfil"] == "u") {
-        include($_SERVER['DOCUMENT_ROOT'] . '/app/funcionarios/menu_user.php');
+        include('../menu_user.php');
     }
     ?>
 

@@ -1,6 +1,6 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/app/config/conexao.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
+include('../config/conexao.php');
+include('../../login/validar.php');
 
 date_default_timezone_set('America/Sao_Paulo');
 ?>
@@ -104,10 +104,10 @@ date_default_timezone_set('America/Sao_Paulo');
     }
     ?>
     <hr />
-    <a href="/app/frigobar/itens.php">Cadastrar itens no frigobar</a><br />
-    <a href="/app/frigobar/consumo.php">Cadastrar consumo</a><br />
-    <a href="/app/frigobar/index.php">Area frigobar</a><br />
-    <a href="/app/funcionarios/include/painel.php">Pagina Inicial</a>
+    <a href="./itens.php">Cadastrar itens no frigobar</a><br />
+    <a href="./consumo.php">Cadastrar consumo</a><br />
+    <a href="./index.php">Area frigobar</a><br />
+    <a href="../funcionarios/include/painel.php">Pagina Inicial</a>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 

@@ -1,5 +1,5 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
+include('../../login/validar.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,11 +14,11 @@ include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
 
     <h2>Bem vinda a Area frigobar</h2>
 
-    <a href="consulteI.php">Itens no frigobar</a>
+    <a href="./consulteI.php">Itens no frigobar</a>
     <br />
-    <a href="consulteF.php">Frigobar por acomodação</a>
+    <a href="./consulteF.php">Frigobar por acomodação</a>
     <br />
-    <a href="/app/funcionarios/include/painel.php">Pagina Inicial</a>
+    <a href="../funcionarios/include/painel.php">Pagina Inicial</a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 

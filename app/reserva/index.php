@@ -1,6 +1,6 @@
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . '/app/config/conexao.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/login/validar.php');
+include('../config/conexao.php');
+include('../../login/validar.php');
 
 $permissaoPerfil = $_SESSION["perfil"];
 ?>
@@ -100,7 +100,7 @@ $permissaoPerfil = $_SESSION["perfil"];
                         <?php
                         if ($permissaoPerfil !== "u") {
                         ?>
-                            <td><a href="/app/reserva/editar.php?idReserva=<?php echo $idMatricula ?>">...</a></td>
+                            <td><a href="./editar.php?idReserva=<?php echo $idMatricula ?>">...</a></td>
                         <?php
                         }
                         ?>
@@ -122,10 +122,10 @@ $permissaoPerfil = $_SESSION["perfil"];
     }
     ?>
     <hr />
-    <a href="/app/reserva/reserva.php">Realizar reserva</a></br>
-    <a href="/app/reserva/checkin.php">Realizar check-in</a></br>
-    <a href="/app/reserva/checkout.php">Realizar check-out</a></br>
-    <a href="/app/funcionarios/include/painel.php">Pagina Inicial</a>
+    <a href="./reserva.php">Realizar reserva</a></br>
+    <a href="./checkin.php">Realizar check-in</a></br>
+    <a href="./checkout.php">Realizar check-out</a></br>
+    <a href="../funcionarios/include/painel.php">Pagina Inicial</a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
