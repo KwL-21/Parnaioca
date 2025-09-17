@@ -13,9 +13,9 @@ include('../../login/validar.php');
         <meta http-equiv="refresh" content="0; url=noscript.php" />
     </noscript>
 
-    <script src="/app/assets/js/jquery.min.js"></script>
-    <script src="/app/assets/js/jquery.validate.js"></script>
-    <script src="/app/assets/js/maskedinput-1.1.2.pack.js"></script>
+    <script src="/parnaioca/app/assets/js/jquery.min.js"></script>
+    <script src="/parnaioca/app/assets/js/jquery.validate.js"></script>
+    <script src="/parnaioca/app/assets/js/maskedinput-1.1.2.pack.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -24,7 +24,7 @@ include('../../login/validar.php');
             $("#nascimento").mask("99/99/9999");
         });
     </script>
-    <script type="text/javascript" src="/app/assets/js/cidades-estados-v0.2.js"></script>
+    <script type="text/javascript" src="/parnaioca/app/assets/js/cidades-estados-v0.2.js"></script>
     <script type="text/javascript">
         window.onload = function() {
             new dgCidadesEstados(

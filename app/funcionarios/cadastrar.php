@@ -16,9 +16,9 @@ $permissaoPerfil = $_SESSION["perfil"];
         <meta http-equiv="refresh" content="0; url=noscript.php" />
     </noscript>
 
-    <script src="/app/assets/js/jquery.min.js"></script>
-    <script src="/app/assets/js/jquery.validate.js"></script>
-    <script src="/app/assets/js/maskedinput-1.1.2.pack.js"></script>
+    <script src="/parnaioca/app/assets/js/jquery.min.js"></script>
+    <script src="/parnaioca/app/assets/js/jquery.validate.js"></script>
+    <script src="/parnaioca/app/assets/js/maskedinput-1.1.2.pack.js"></script>
 
     <script>
         $(document).ready(function() {

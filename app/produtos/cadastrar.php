@@ -15,13 +15,9 @@ include('../../login/validar.php');
 
     <script src="/app/assets/js/jquery.min.js"></script>
     <script src="/app/assets/js/jquery.validate.js"></script>
-    <script src="/app/assets/js/maskedinput-1.1.2.pack.js"></script>
-
     <script>
         $(document).ready(function() {
             $("#f").validate();
-            $("#cpf").mask("999.999.999-99");
-            $("#nascimento").mask("99/99/9999");
         });
     </script>
 

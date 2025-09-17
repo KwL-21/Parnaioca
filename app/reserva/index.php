@@ -1,134 +1,107 @@
+
+
 <?php
 include('../config/conexao.php');
 include('../../login/validar.php');
 
 $permissaoPerfil = $_SESSION["perfil"];
+$sql = "SELECT * FROM reserva r
+INNER JOIN clientes c ON r.cliente = c.cpf
+INNER JOIN acomodacoes a ON r.Acomodacoes = a.nome";
+$result = mysqli_query($con, $sql);
+$totalregistros = mysqli_num_rows($result);
 ?>
-
 <!DOCTYPE html>
 <html>
-
 <head>
-
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Parnaioca - Consultar Reserva</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <script>
-        function excluir(mat) {
-
-            if (confirm('Deseja realmente excluir ?' + mat)) {
-                location.href = 'excluir.php?idusuario=' + mat;
-            }
-
-        }
-    </script>
-
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="../../assets/vendor/jquery-datatable/dataTables.bootstrap4.min.css"/>
+    <!-- jQuery -->
+    <script src="../../assets/vendor/jquery/jquery.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="../../assets/vendor/jquery-datatable/jquery.dataTables.min.js"></script>
+    <script src="../../assets/vendor/jquery-datatable/dataTables.bootstrap4.min.js"></script>
 </head>
-
 <body>
-    <h3>Consulta de Reserva</h3>
-
-    <form action="index.php" method="get">
-
-        Número da reserva:
-        <select name="idreserva" required>
-            <option value="">Selecione uma reserva</option>
-            <option value="%">Todas as reservas</option>
-            <?php
-            $sqlreserva = mysqli_query($con, "SELECT idreserva FROM reserva");
-
-
-            while ($reservas = mysqli_fetch_assoc($sqlreserva)) {
-            ?>
-                <option value="<?php echo $reservas['idreserva'] ?>"><?php echo $reservas['idreserva'] ?></option>
-            <?php
-            }
-            ?>
-        </select>
-        <input type="submit" name="Enviar" />
-    </form>
-
-    <?php
-
-    if (!empty($_GET["idreserva"])) {
-        $Acomodacao = $_GET["idreserva"];
-
-
-        $sql = "select * from reserva where idreserva like '%{$Acomodacao}%'";
-        $result = mysqli_query($con, $sql);
-        $totalregistros = mysqli_num_rows($result);
-
-        if ($totalregistros > 0) {
-    ?>
-            <table width="900px" border="1px">
-                <tr>
-                    <th>Acomodação</th>
-                    <th>Cliente</th>
-                    <th>CPF</th>
-                    <th>Data de Inicio</th>
-                    <th>Data de Termino</th>
-                    <th>Situação</th>
-                    <?php
-                    if ($permissaoPerfil !== "u") {
-                    ?>
-                        <th>Editar</th>
-                    <?php
-                    }
-                    ?>
-                </tr>
-                <?php
-
-                while ($row = mysqli_fetch_array($result)) {
-                    $idMatricula = $row['idreserva'];
-
-                    $Cliente = $row['cliente'];
-                    $nome = mysqli_query($con, "SELECT nome FROM clientes WHERE cpf like '%{$Cliente}%'");
-                    $assoc = mysqli_fetch_assoc($nome);
-
-
-                ?>
-
-                    <tr>
-                        <td><?php echo $row["Acomodacoes"] ?></td>
-                        <td><?php echo $assoc['nome'] ?></td>
-                        <td><?php echo $row["cliente"] ?></td>
-                        <td><?php echo $row["inicio"] ?></td>
-                        <td><?php echo $row["final"] ?></td>
-                        <td><?php echo $row["situacao"] ?></td>
-                        <?php
-                        if ($permissaoPerfil !== "u") {
-                        ?>
-                            <td><a href="./editar.php?idReserva=<?php echo $idMatricula ?>">...</a></td>
-                        <?php
-                        }
-                        ?>
-                    </tr>
-
-                <?php
-                }
-                echo "</table>";
-                ?>
-            </table>
-    <?php
-
-            echo "Total de registros: " . $totalregistros;
-        } else {
-            echo "Nenhum registro encontrado!";
-        }
-
-        mysqli_close($con);
-    }
-    ?>
+    <div class="card">
+        <div class="body">
+            <div class="row justify-content-end mr-2 pb-2">
+                <a onclick="abrirHistorico()"><small><i class="fa fa-history"></i> Histórico</small></a>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <!-- Filtro de empresa, se necessário -->
+                    <!-- <?php // include './include/cEmpresaFiltro.php'; ?> -->
+                </div>
+            </div>
+            <br>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover dataTable table-sm" id="tabelaReserva" width="50%">
+                    <thead>
+                        <tr>
+                            <th class="align-center">#</th>
+                            <th class="align-center">Acomodação</th>
+                            <th class="align-center">Cliente</th>
+                            <th class="align-center">CPF</th>
+                            <th class="align-center">Data de Início</th>
+                            <th class="align-center">Data de Término</th>
+                            <th class="align-center">Situação</th>
+                            <?php if ($permissaoPerfil !== "u") { ?>
+                                <th class="align-center">Editar</th>
+                            <?php } ?>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $i = 1; while ($row = mysqli_fetch_array($result)) { $idReserva = $row['idreserva']; ?>
+                        <tr class="font-12">
+                            <td class="align-center"><?php echo $i++; ?></td>
+                            <td class="align-center"><?php echo $row["Acomodacoes"] ?></td>
+                            <td class="align-center"><?php echo $row["nome"] ?></td>
+                            <td class="align-center"><?php echo $row["cpf"] ?></td>
+                            <td class="align-center"><?php echo $row["inicio"] ?></td>
+                            <td class="align-center"><?php echo $row["final"] ?></td>
+                            <td class="align-center"><?php echo $row["situacao"] ?></td>
+                            <?php if ($permissaoPerfil !== "u") { ?>
+                                <td class="align-center">
+                                    <a href="editar.php?idreserva=<?php echo $idReserva ?>" class="pointer">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                </td>
+                            <?php } ?>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div>Total de registros: <?php echo $totalregistros; ?></div>
     <hr />
-    <a href="./reserva.php">Realizar reserva</a></br>
-    <a href="./checkin.php">Realizar check-in</a></br>
-    <a href="./checkout.php">Realizar check-out</a></br>
+    <a href="./reserva.php">Realizar reserva</a><br />
+    <a href="./checkin.php">Realizar check-in</a><br />
+    <a href="./checkout.php">Realizar check-out</a><br />
     <a href="../funcionarios/include/painel.php">Pagina Inicial</a>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            $('#tabelaReserva').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        text: 'Cadastrar Reserva',
+                        action: function (e, dt, node, config) {
+                            window.location.href = './reserva.php';
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
 </body>
-
 </html>
