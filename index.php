@@ -1,39 +1,26 @@
 <?php
 define('ROOT_PATH', dirname(__FILE__));
-?>
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Parnaioca - login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-</head>
-
-<body>
-
-    <h4>Bem vindo a Parnaioca</h4>
-
-    <form action="./login/verificarlogin.php" method="post" id="f">
-
-        <input type="text" name="login" placeholder="Login" /><br /><br />
-
-        <input type="password" name="senha" placeholder="Senha" /><br /><br />
 
 
+$login_content = '<form action="./login/verificarlogin.php" method="post" id="f">
+    <div class="form-floating mb-3">
+        <input class="form-control" id="inputLogin" type="text" name="login" placeholder=" " required />
+        <label for="inputLogin">Login</label>
+    </div>
 
-        <button type="submit" class="btn btn-success">Enviar</button>
+    <div class="form-floating mb-3">
+        <input class="form-control" id="inputPassword" type="password" name="senha" placeholder=" " required />
+        <label for="inputPassword">Senha</label>
+    </div>
 
-    </form>
+    <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+        <button type="submit" class="btn btn-primary w-100">Entrar</button>
+    </div>
+</form>';
 
-    <?php
-    if (!empty($_GET["msg"])) {
-        $msg = $_GET["msg"];
-        echo $msg;
-    }
-    ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
 
-</html>
+if (!empty($_GET["msg"])) {
+    $login_content .= '<div class="alert alert-warning mt-3">' . htmlspecialchars($_GET["msg"]) . '</div>';
+}
+
+include __DIR__ . '/views/layouts/sbadmin-login.php';
